@@ -1,0 +1,95 @@
+---
+layout: base.njk
+title: The Cozy Tales
+---
+
+{# HERO / WELCOME #}
+<section class="hero container section">
+  <h1>The Cozy Tales</h1>
+  <p>Your warm corner for pixel art, indie games, crafts, and heartwarming stories.</p>
+</section>
+
+<section class="latest-news container section scroll-box">
+  <h2>Latest News</h2>
+  <ul>
+    {% for post in collections.latestNews | slice(0, 4) %}
+      <li>
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+        <time datetime="{{ post.date }}">{{ post.date | date }}</time>
+      </li>
+    {% endfor %}
+  </ul>
+  <p><a href="/latest-news/">See all news →</a></p>
+</section>
+
+
+<section class="latest-posts-carousel">
+  <h2>Latest Posts</h2>
+  <div class="carousel">
+    {% for post in collections.latestAddedPosts %}
+      {% set url = post.url %}
+      {% set title = post.data.title %}
+      {% set excerpt = post.data.excerpt %}
+      {% set date = post.data.date %}
+      {% set headerImage = post.data.headerImage %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+  </div>
+</section>
+
+
+
+{# FEATURED GAME BLOGS #}
+<section class="featured-posts container section">
+  <h2>Featured Game Blogs</h2>
+  <div class="grid">
+    {% for post in collections.gameBlogs | slice(0,3) %}
+      {% set url     = post.url %}
+      {% set title   = post.data.title %}
+      {% set excerpt = post.data.excerpt %}
+      {% set date    = post.data.date %}
+      {% set headerImage = postItem.data.headerImage %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+  </div>
+  <p><a href="/game-blogs/">View all game blogs →</a></p>
+</section>
+
+{# FEATURED CRAFTS & ARTS #}
+<section class="featured-posts container section">
+  <h2>Featured Crafts &amp; Arts</h2>
+  <div class="grid">
+    {% for post in collections.craftsArts | slice(0,3) %}
+      {% set url     = post.url %}
+      {% set title   = post.data.title %}
+      {% set excerpt = post.data.excerpt %}
+      {% set date    = post.data.date %}
+      {% set headerImage = postItem.data.headerImage %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+  </div>
+  <p><a href="/crafts-arts/">View all crafts & arts →</a></p>
+</section>
+
+{# FEATURED TALES & STORIES #}
+<section class="featured-posts container section">
+  <h2>Featured Tales &amp; Stories</h2>
+  <div class="grid">
+    {% for post in collections.tales | slice(0,3) %}
+      {% set url     = post.url %}
+      {% set title   = post.data.title %}
+      {% set excerpt = post.data.excerpt %}
+      {% set date    = post.data.date %}
+      {% set headerImage = postItem.data.headerImage %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+  </div>
+  <p><a href="/tales/">Read all tales →</a></p>
+</section>
+
+{# NEWSLETTER CTA #}
+<section class="subscribe-cta container section text-center">
+  <h2>Stay Cozy</h2>
+  <p>Get the latest posts and exclusive stories delivered to your inbox.</p>
+  <a href="/subscribe/" class="pixel-button">Subscribe Now</a>
+</section>

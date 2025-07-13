@@ -1,0 +1,72 @@
+backend:
+  name: git-gateway
+  branch: main  # or your default branch
+
+media_folder: "src/assets/uploads"  # where uploaded images will be stored
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "gameBlogs"
+    label: "Game Blogs"
+    folder: "src/posts/game-blogs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Header Image", name: "headerImage", widget: "image", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["gameBlogs"] }
+
+  - name: "bookBlogs"
+    label: "Book Blogs"
+    folder: "src/posts/book-blogs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Header Image", name: "headerImage", widget: "image", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["bookBlogs"] }
+
+  - name: "craftsArts"
+    label: "Crafts Arts"
+    folder: "src/posts/crafts-arts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Header Image", name: "headerImage", widget: "image", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["craftsArts"] }
+  
+  - name: "latestNews"
+    label: "Latest News"
+    folder: "src/posts/latest-news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Header Image", name: "headerImage", widget: "image", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["latestNews"] }
+
+  - name: "tales"
+    label: "Tales"
+    folder: "src/posts/tales"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Header Image", name: "headerImage", widget: "image", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["tales"] }

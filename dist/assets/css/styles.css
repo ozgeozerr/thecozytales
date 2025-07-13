@@ -1,0 +1,307 @@
+/* styles.css */
+
+/* 1. IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@300;400;600&display=swap');
+
+/* 2. COLOR PALETTE - Dark green with soft pink accents */
+:root {
+  --bg: #142f28;               /* deep forest green */
+  --fg: #d6e8d6;               /* soft light greenish text */
+  --accent: #f6c1c1;           /* soft light pink accent */
+  --primary: #a9d18e;          /* fresh light green */
+  --border: #7cbf7c;           /* lighter green for borders */
+  --light-bg: #1f4233;         /* slightly lighter background blocks */
+  --scroll-bg: #264d3c;        /* dark green scroll box bg */
+  --hover-bg: #3a6f51;         /* lighter hover background for cards */
+  --link-hover: #f6c1c1;       /* pink hover color */
+}
+
+/* 3. GLOBAL RESET & BASE */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Pixelated border mixin (conceptually) */
+.pixel-border {
+  border: 3px solid var(--border);
+  border-radius: 4px;
+}
+
+/* 4. TYPOGRAPHY */
+h1, h2, h3, h4 {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--accent);
+  margin: 0 0 1rem 0;
+  text-shadow: 0 0 6px rgba(246, 193, 193, 0.7); /* soft pink glow */
+}
+
+p, li, a, time {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Links with pink hover */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* 5. LAYOUT UTILITIES */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Hover and focus styles for buttons and links */
+a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* 6. HERO / WELCOME */
+.hero {
+  background-color: var(--light-bg);
+  padding: 4rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* 7. POST CARD */
+.post-card {
+  background: var(--light-bg);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  background-color: var(--hover-bg);
+  box-shadow: 0 8px 20px rgba(246, 193, 193, 0.8); /* pink glow on hover */
+  transform: translateY(-4px);
+}
+
+.post-card h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.post-card p {
+  color: var(--fg);
+}
+
+.post-card time {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--primary);
+  font-style: italic;
+}
+
+/* 8. SECTION & GRID LAYOUTS */
+.section {
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.featured-posts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* 9. POST LIST */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 10. NAVBAR */
+header {
+  background: var(--light-bg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.pixel-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  container-type: inline-size;
+}
+
+.pixel-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem 1rem;
+}
+
+.pixel-nav a {
+  text-decoration: none;
+  color: var(--primary);
+  padding: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, color 0.3s ease;
+}
+
+.pixel-nav a:hover,
+.pixel-nav a:focus {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Mobile hamburger (simplified) */
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--fg);
+  margin: 5px;
+}
+
+/* 11. WELCOME NOOK */
+.welcome-nook {
+  text-align: center;
+}
+
+.welcome-nook p {
+  font-size: 1.2rem;
+}
+
+/* 12. SCROLL BOX */
+.scroll-box {
+  background: var(--scroll-bg);
+  padding: 1rem;
+  max-height: 180px;
+  overflow-y: auto;
+  border: 3px solid var(--border);
+  border-radius: 4px;
+}
+
+/* Custom scrollbar (WebKit) */
+.scroll-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* 13. RESPONSIVE BREAKPOINTS */
+@media (min-width: 600px) {
+  .featured-posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pixel-nav ul {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .container {
+    padding: 3rem 0;
+  }
+  .featured-posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .scroll-box {
+    max-height: 240px;
+  }
+}
+
+/* 14. UTILITY CLASSES */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.carousel::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 4px;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  min-width: 250px;
+  max-width: 300px;
+  background: var(--light-bg);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item:hover {
+  transform: scale(1.02);
+}
+
+.carousel-item h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.post-card img {
+  width: 100%;           /* make image full width of card */
+  height: 180px;         /* fixed height, adjust as needed */
+  object-fit: cover;     /* crop to fill the box without distortion */
+  border-radius: 6px;    /* optional, match card radius */
+  display: block;        /* removes inline spacing below images */
+}
+
+

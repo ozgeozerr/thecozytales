@@ -1,0 +1,14 @@
+<div class="post-card">
+  {% if headerImage %}
+    <div class="image-wrapper">
+      <img src="{{ headerImage }}" alt="Header image for {{ title }}">
+    </div>
+  {% endif %}
+  <a href="{{ url }}">
+    <h2>{{ title }}</h2>
+  </a>
+  <p>{{ excerpt }}</p>
+  {% if date %}
+    <time datetime="{{ date }}">{{ date | date }}</time>
+  {% endif %}
+</div>

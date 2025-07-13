@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: Latest News
+permalink: /subscribe/
+---
+
+<h1>Latest News</h1>
+<ul class="post-list">
+  {% for postItem in posts %}
+    {% set url     = postItem.url %}
+    {% set title   = postItem.data.title %}
+    {% set excerpt = postItem.data.excerpt %}
+    {% set date    = postItem.data.date %}
+    {% include "post-card.njk" %}
+  {% else %}
+    <li>No news posts yet.</li>
+  {% endfor %}
+</ul>

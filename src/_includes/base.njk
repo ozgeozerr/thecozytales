@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title | default("The Cozy Tales") }}</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <meta name="description" content="{{ page.description | default(siteDescription) }}">
+  <link rel="canonical" href="{{ page.url | url }}">
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ title }} | The Cozy Tales">
+  <meta property="og:description" content="{{ page.description | default(siteDescription) }}">
+  <meta property="og:url" content="{{ page.url | url }}">
+  <meta property="og:type" content="website">
+
+</head>
+<body>
+  <header>
+    {% include "navbar.njk" %}
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>© 2025 The Cozy Tales — All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

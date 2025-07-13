@@ -1,0 +1,26 @@
+---
+layout: base.njk
+title: Game Blogs
+permalink: /game-blogs/
+pagination:
+  data: collections.gameBlogs
+  size: 10
+  alias: posts
+---
+
+<h1>Game Blogs</h1>
+
+<ul class="post-list">
+  {% for postItem in posts %}
+    {# 1. Pull out the data into local variables #}
+    {% set url     = postItem.url %}
+    {% set title   = postItem.data.title %}
+    {% set excerpt = postItem.data.excerpt %}
+    {% set date    = postItem.data.date %}
+    {# 2. Include the post-card which now sees url, title, excerpt, date #}
+    {% set headerImage = postItem.data.headerImage %}
+    {% include "post-card.njk" %}
+  {% else %}
+    <li>No game blog posts yet.</li>
+  {% endfor %}
+</ul>
