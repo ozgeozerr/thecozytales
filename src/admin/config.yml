@@ -10,6 +10,7 @@ collections:
   - name: "gameBlogs"
     label: "Game Blogs"
     folder: "src/posts/game-blogs"
+    default: "post"
     create: true
     slug: "{{slug}}"
     fields:
@@ -23,6 +24,7 @@ collections:
   - name: "bookBlogs"
     label: "Book Blogs"
     folder: "src/posts/book-blogs"
+    default: "post"
     create: true
     slug: "{{slug}}"
     fields:
@@ -36,6 +38,7 @@ collections:
   - name: "craftsArts"
     label: "Crafts Arts"
     folder: "src/posts/crafts-arts"
+    default: "post"
     create: true
     slug: "{{slug}}"
     fields:
@@ -49,6 +52,7 @@ collections:
   - name: "latestNews"
     label: "Latest News"
     folder: "src/posts/latest-news"
+    default: "post"
     create: true
     slug: "{{slug}}"
     fields:
@@ -62,6 +66,7 @@ collections:
   - name: "tales"
     label: "Tales"
     folder: "src/posts/tales"
+    default: "post"
     create: true
     slug: "{{slug}}"
     fields:
