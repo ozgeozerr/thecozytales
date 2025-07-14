@@ -1,9 +1,10 @@
 backend:
-  name: git-gateway
-  branch: main  # or your default branch
+  name: github
+  repo: ozgeozerr/thecozytales   # Your GitHub repo
+  branch: main                   # Your default branch
 
-media_folder: "src/assets/uploads"  # where uploaded images will be stored
-public_folder: "/assets/uploads"
+media_folder: "src/assets/uploads"  # Where uploaded images will be stored
+public_folder: "/assets/uploads"    # How images are referenced in posts
 
 collections:
   - name: "gameBlogs"
@@ -44,7 +45,7 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", default: ["craftsArts"] }
-  
+
   - name: "latestNews"
     label: "Latest News"
     folder: "src/posts/latest-news"
