@@ -1,6 +1,7 @@
 module.exports = function (eleventyConfig) {
   // Pass through static assets folder
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy("src/_redirects");
 
   eleventyConfig.addCollection("latestAddedPosts", (collectionApi) => {
     return collectionApi
