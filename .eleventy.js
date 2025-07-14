@@ -8,10 +8,11 @@ module.exports = function (eleventyConfig) {
       .getAll()
       .filter(
         (item) =>
-          item.inputPath.includes("/posts/") && item.data.layout === "post.njk"
+          item.inputPath.startsWith("./src/posts/") &&
+          item.data.layout === "post.njk"
       )
-      .reverse()
-      .slice(0, 5);
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // sort by date desc
+      .slice(0, 5); // latest 5
   });
 
   // Date filter with default and fallback formatting
