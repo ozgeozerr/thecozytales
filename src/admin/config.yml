@@ -14,6 +14,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }
@@ -28,6 +29,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }
@@ -42,6 +44,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }
@@ -56,6 +59,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }
@@ -70,6 +74,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }
