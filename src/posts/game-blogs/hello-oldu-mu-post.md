@@ -1,6 +1,6 @@
 ---
 title: hello oldu mu post
-date: 2025-07-14T18:13:35.853Z
+date: 2025-07-17T18:14:48.543Z
 excerpt: hihih
 tags:
   - gameBlogs
