@@ -1,22 +1,17 @@
 {% extends "base.njk" %}
 
 {% block content %}
-<article class="post-article">
-  <header class="post-header">
-    <h1 class="post-title">{{ title }}</h1>
-    {% if date %}
-      <p class="post-date"><i class="far fa-calendar"></i> {{ date | date("MMMM d, yyyy") }}</p>
-    {% endif %}
-  </header>
+  <div class="blog-post-wrapper">
+    <article class="blog-post">
+      <h1>{{ title }}</h1>
 
-  <section class="post-content">
-    {{ content | safe }}
-  </section>
+      {% if headerImage %}
+        <img src="{{ headerImage }}" alt="Header image for {{ title }}" class="post-image" />
+      {% endif %}
 
-  <footer class="post-footer">
-    <a href="{{ page.url | getParentUrl }}" class="back-link">
-      <i class="fas fa-arrow-left"></i> Back to {{ page.url | getParentName }}
-    </a>
-  </footer>
-</article>
+      <div class="post-content">
+        {{ content | safe }}
+      </div>
+    </article>
+  </div>
 {% endblock %}

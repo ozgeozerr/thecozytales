@@ -1,6 +1,4 @@
-/* styles.css */
-
-/* 1. IMPORTS */
+/* 1. IMPORTS - Added font-display: swap for better performance */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@300;400;600&display=swap');
 
 /* 2. COLOR PALETTE - Dark green with soft pink accents */
@@ -13,7 +11,8 @@
   --light-bg: #1f4233;        
   --scroll-bg: #264d3c;       
   --hover-bg: #3a6f51;        
-  --link-hover: #f6c1c1;      
+  --link-hover: #f6c1c1;
+  --transition: 0.3s ease;    
 }
 
 /* 3. GLOBAL RESET & BASE */
@@ -21,19 +20,26 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  min-height: 100vh;
   background: var(--bg);
   color: var(--fg);
   font-family: 'Nunito', sans-serif;
   line-height: 1.6;
-  font-size: 16px;
+  font-size: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Pixelated border mixin (conceptually) */
+/* Pixelated border mixin */
 .pixel-border {
   border: 3px solid var(--border);
   border-radius: 4px;
@@ -44,24 +50,30 @@ h1, h2, h3, h4 {
   font-family: 'Press Start 2P', cursive;
   color: var(--accent);
   margin: 0 0 1rem 0;
-  text-shadow: 0 0 6px rgba(246, 193, 193, 0.7); /* soft pink glow */
+  text-shadow: 0 0 6px rgba(246, 193, 193, 0.7);
+  line-height: 1.3;
 }
 
-p, li, a, time {
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+
+p, li, a, time, button, input, label {
   font-family: 'Nunito', sans-serif;
 }
 
-/* Links with pink hover */
 a {
   color: var(--primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--transition);
 }
 
 a:hover,
 a:focus {
   color: var(--link-hover);
   text-decoration: underline;
+  outline: none;
 }
 
 /* 5. LAYOUT UTILITIES */
@@ -69,12 +81,15 @@ a:focus {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  width: 100%;
 }
 
-/* Hover and focus styles for buttons and links */
-a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
-  color: var(--link-hover);
-  text-decoration: underline;
+/* Center main content */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
 }
 
 /* 6. HERO / WELCOME */
@@ -83,6 +98,7 @@ a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
   padding: 4rem 1rem;
   border-radius: 10px;
   text-align: center;
+  margin: 2rem 0;
 }
 
 .hero-buttons {
@@ -93,7 +109,6 @@ a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
   flex-wrap: wrap;
 }
 
-
 /* 7. POST CARD */
 .post-card {
   background: var(--light-bg);
@@ -101,13 +116,13 @@ a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
   margin: 1rem 0;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-  transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+  transition: all var(--transition);
   cursor: pointer;
 }
 
 .post-card:hover {
   background-color: var(--hover-bg);
-  box-shadow: 0 8px 20px rgba(246, 193, 193, 0.8); /* pink glow on hover */
+  box-shadow: 0 8px 20px rgba(246, 193, 193, 0.8);
   transform: translateY(-4px);
 }
 
@@ -118,6 +133,7 @@ a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
 
 .post-card p {
   color: var(--fg);
+  margin-bottom: 1rem;
 }
 
 .post-card time {
@@ -130,10 +146,28 @@ a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
 
 /* 8. SECTION & GRID LAYOUTS */
 .section {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin: 4rem 0;
+  padding: 1rem 0;
 }
 
+.section-title {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;      /* Increased size */
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background: var(--accent);
+}
 
 .grid {
   display: grid;
@@ -157,10 +191,11 @@ a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
 /* 10. NAVBAR */
 header {
   background: var(--light-bg);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  padding: 0.5rem 0;
 }
 
 .pixel-nav {
@@ -175,28 +210,31 @@ header {
   display: flex;
   gap: 1rem;
   margin: 0;
-  padding: 1rem 1rem;
+  padding: 0 1rem;
 }
 
 .pixel-nav a {
   text-decoration: none;
   color: var(--primary);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border: 2px solid transparent;
   border-radius: 6px;
-  transition: border-color 0.2s ease, color 0.3s ease;
+  transition: all var(--transition);
 }
 
 .pixel-nav a:hover,
 .pixel-nav a:focus {
   border-color: var(--accent);
   color: var(--accent);
+  background: rgba(246, 193, 193, 0.1);
 }
 
-/* Mobile hamburger (simplified) */
 .nav-toggle {
   display: none;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
 }
 
 .nav-toggle span {
@@ -204,16 +242,56 @@ header {
   width: 25px;
   height: 3px;
   background: var(--fg);
-  margin: 5px;
+  margin: 5px auto;
+  transition: all 0.3s ease;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .pixel-nav ul {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    flex-direction: column;
+    background: var(--light-bg);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    padding: 1rem 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+  
+  .pixel-nav ul.active {
+    left: 0;
+  }
+  
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
 
 /* 11. WELCOME NOOK */
 .welcome-nook {
   text-align: center;
+  padding: 2rem 0;
 }
 
 .welcome-nook p {
   font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* 12. SCROLL BOX */
@@ -224,63 +302,42 @@ header {
   overflow-y: auto;
   border: 3px solid var(--border);
   border-radius: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
 
-/* Custom scrollbar (WebKit) */
 .scroll-box::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .scroll-box::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
-/* 13. RESPONSIVE BREAKPOINTS */
-@media (min-width: 600px) {
-  .featured-posts {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .pixel-nav ul {
-    gap: 1.5rem;
-  }
-}
-
-@media (min-width: 900px) {
-  .container {
-    padding: 3rem 0;
-  }
-  .featured-posts {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .scroll-box {
-    max-height: 240px;
-  }
-}
-
-/* 14. UTILITY CLASSES */
-.text-center {
-  text-align: center;
-}
-
-.mt-1 { margin-top: 1rem; }
-.mt-2 { margin-top: 2rem; }
-.mb-1 { margin-bottom: 1rem; }
-.mb-2 { margin-bottom: 2rem; }
-
-
+/* 13. CAROUSEL */
 .carousel {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 2rem 1rem;
-  gap: 1rem;
-  
+  gap: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
 }
 
 .carousel::-webkit-scrollbar {
   height: 8px;
 }
+
+.carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .carousel::-webkit-scrollbar-thumb {
   background-color: var(--accent);
   border-radius: 4px;
@@ -293,105 +350,34 @@ header {
   background: var(--light-bg);
   border: 2px solid var(--border);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem;
   scroll-snap-align: start;
-  transition: transform 0.3s ease;
-  margin-right: 0.5rem;
+  transition: transform var(--transition);
 }
 
 .carousel-item:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .carousel-item h3 {
   margin-top: 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--accent);
+}
+
+/* 14. IMAGES */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .post-card img {
-  width: 100%;          
-  height: 180px;        
-  object-fit: cover;    
-  border-radius: 6px;   
-  display: block;       
-}
-
-.newsletter {
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
-.subscribe-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.subscribe-form input {
-  padding: 0.75rem;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
   border-radius: 6px;
-  border: 1px solid var(--border);
-}
-.subscribe-form button {
-  background: var(--primary);
-  color: var(--bg);
-  border: none;
-  padding: 0.75rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.subscribe-form button:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-.latest-news ul {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  padding: 1rem 0;
-  list-style: none;
-}
-
-.latest-news li {
-  flex: 0 0 auto;
-  background: var(--light-bg);
-  border: 2px solid var(--border);
-  padding: 1rem;
-  border-radius: 6px;
-  min-width: 200px;
-}
-
-.blog-post {
-  padding: 2rem 1rem;
-  background: var(--light-bg);
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.3);
-  line-height: 1.8;
-}
-
-.post-header {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.post-header h1 {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.6rem;
-  color: var(--accent);
-  text-shadow: 0 0 6px rgba(246, 193, 193, 0.7);
-}
-
-.post-meta {
-  color: var(--primary);
-  font-size: 0.9rem;
-  font-style: italic;
-  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .post-image {
@@ -399,91 +385,284 @@ header {
   max-height: 400px;
   object-fit: cover;
   margin: 2rem 0;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 3px solid var(--border);
+  display: block;
 }
 
-/* Blog content styling (Markdown body) */
-.post-content {
-  font-size: 1.1rem;
+/* 15. NEWSLETTER */
+.newsletter {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: var(--light-bg);
+  border-radius: 10px;
+  margin: 3rem 0;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subscribe-form input {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 2px solid var(--border);
+  background: rgba(255,255,255,0.1);
   color: var(--fg);
-  line-height: 1.8;
-  max-width: 750px;
-  margin: 0 auto;
+  font-size: 1rem;
+  transition: border-color var(--transition);
 }
 
-.post-content h1,
-.post-content h2,
-.post-content h3 {
-  font-family: 'Press Start 2P', cursive;
-  color: var(--accent);
+.subscribe-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.subscribe-form button {
+  background: var(--primary);
+  color: var(--bg);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.subscribe-form button:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+/* 16. LATEST NEWS */
+.latest-news {
+  padding: 2rem 0;
+}
+
+.latest-news ul {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.latest-news li {
+  flex: 0 0 auto;
+  background: var(--light-bg);
+  border: 2px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 8px;
+  min-width: 250px;
+  scroll-snap-align: start;
+  transition: transform var(--transition);
+}
+
+.latest-news li:hover {
+  transform: translateY(-5px);
+}
+
+.blog-post-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg); /* koyu yeşil */
+  padding: 4rem 1rem;
+}
+
+.blog-post {
+  background-color: var(--accent) !important; /* açık toz pembe */
+  border: 4px solid red !important;
+  max-width: 800px !important;
+  width: 100% !important;
+  padding: 3rem 2rem !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4) !important;
+  overflow-y: auto !important;
+  max-height: calc(100vh - 8rem) !important;
+  color: #1f1f1f !important;
+  z-index: 2 !important;
+  position: relative !important;
+}
+
+
+/* Başlık */
+.blog-post h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  color: var(--bg); /* koyu yeşil başlık */
+}
+
+/* Meta bilgisi */
+.blog-post .post-meta {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+/* Kapak fotoğrafı */
+.blog-post .post-image {
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 2rem 0;
+  display: block;
+  border: 2px solid var(--primary);
+}
+
+/* İçerik alanı */
+.post-content {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+/* Başlıklar */
+.post-content h2 {
+  font-size: 1.75rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-.post-content h1 {
-  font-size: 1.6rem;
-}
-
-.post-content h2 {
-  font-size: 1.3rem;
+  color: var(--bg);
 }
 
 .post-content h3 {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  color: #222;
 }
 
-.post-content p {
-  margin-bottom: 1.5rem;
-}
-
-.post-content a {
-  color: var(--primary);
-  text-decoration: underline;
-}
-
-.post-content a:hover {
-  color: var(--link-hover);
-}
-
-.post-content ul,
-.post-content ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.post-content li {
-  margin-bottom: 0.5rem;
-}
-
-.post-content blockquote {
-  border-left: 4px solid var(--accent);
-  padding-left: 1rem;
-  margin-left: 0;
-  color: var(--accent);
-  font-style: italic;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
-  border-radius: 4px;
-}
-
+/* İçerik görselleri */
 .post-content img {
   max-width: 100%;
-  border-radius: 6px;
-  margin: 2rem auto;
   display: block;
-  border: 3px solid var(--border);
+  margin: 2rem auto;
+  border-radius: 8px;
+  border: 2px solid var(--border);
 }
 
-.post-content pre,
-.post-content code {
-  font-family: monospace;
-  background-color: #1b1b1b;
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .blog-post {
+    padding: 2rem 1rem;
+    max-height: none;
+  }
+
+  .blog-post h1 {
+    font-size: 2rem;
+  }
+
+  .post-content {
+    font-size: 1rem;
+  }
+}
+
+/* 18. UTILITY CLASSES */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+.py-1 { padding: 1rem 0; }
+.py-2 { padding: 2rem 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 19. RESPONSIVE BREAKPOINTS */
+@media (min-width: 600px) {
+  .featured-posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .pixel-nav ul {
+    gap: 1.5rem;
+  }
+  
+  .hero {
+    padding: 5rem 2rem;
+  }
+  
+  .subscribe-form {
+    flex-direction: row;
+  }
+  
+  .subscribe-form input {
+    flex: 1;
+  }
+}
+
+@media (min-width: 900px) {
+  .container {
+    padding: 2rem;
+  }
+  
+  .featured-posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .scroll-box {
+    max-height: 240px;
+  }
+  
+  .post-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 3rem;
+  }
+}
+
+/* 20. FOOTER */
+footer {
+  background: var(--light-bg);
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--primary);
+}
+
+.footer-links a:hover {
   color: var(--accent);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  overflow-x: auto;
-  display: block;
-  margin-bottom: 1.5rem;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: var(--primary);
+  opacity: 0.8;
 }
