@@ -51,6 +51,30 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/admin");
 
+  // Get parent section name from URL
+  eleventyConfig.addFilter("getParentName", function (url) {
+    const parts = url.split("/").filter((part) => part);
+    return parts.length > 1 ? parts[0].replace(/-/g, " ") : "Home";
+  });
+
+  // Get parent URL
+  eleventyConfig.addFilter("getParentUrl", function (url) {
+    const parts = url.split("/").filter((part) => part);
+    return parts.length > 1 ? `/${parts[0]}/` : "/";
+  });
+
+  // Get category from URL
+  eleventyConfig.addFilter("getCategoryFromUrl", function (url) {
+    const parts = url.split("/").filter((part) => part);
+    if (parts.length > 1) {
+      return parts[0]
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
+    return null;
+  });
+
   return {
     dir: {
       input: "src",

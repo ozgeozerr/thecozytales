@@ -1,9 +1,16 @@
 backend:
-  name: git-gateway
-  branch: main  # or your default branch
+  name: github
+  repo: ozgeozerr/thecozytales  
+  branch: main             
 
-media_folder: "src/assets/uploads"  # where uploaded images will be stored
-public_folder: "/assets/uploads"
+media_folder: "src/assets/uploads"  
+public_folder: "/assets/uploads"   
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: post.njk
 
 collections:
   - name: "gameBlogs"
@@ -12,6 +19,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }
@@ -25,6 +33,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }
@@ -38,19 +47,21 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }
       - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", default: ["craftsArts"] }
-  
+
   - name: "latestNews"
     label: "Latest News"
     folder: "src/posts/latest-news"
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }
@@ -64,6 +75,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Header Image", name: "headerImage", widget: "image", required: false }

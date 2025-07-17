@@ -5,15 +5,15 @@
 
 /* 2. COLOR PALETTE - Dark green with soft pink accents */
 :root {
-  --bg: #142f28;               /* deep forest green */
-  --fg: #d6e8d6;               /* soft light greenish text */
-  --accent: #f6c1c1;           /* soft light pink accent */
-  --primary: #a9d18e;          /* fresh light green */
-  --border: #7cbf7c;           /* lighter green for borders */
-  --light-bg: #1f4233;         /* slightly lighter background blocks */
-  --scroll-bg: #264d3c;        /* dark green scroll box bg */
-  --hover-bg: #3a6f51;         /* lighter hover background for cards */
-  --link-hover: #f6c1c1;       /* pink hover color */
+  --bg: #142f28;              
+  --fg: #d6e8d6;              
+  --accent: #f6c1c1;          
+  --primary: #a9d18e;        
+  --border: #7cbf7c;          
+  --light-bg: #1f4233;        
+  --scroll-bg: #264d3c;       
+  --hover-bg: #3a6f51;        
+  --link-hover: #f6c1c1;      
 }
 
 /* 3. GLOBAL RESET & BASE */
@@ -85,10 +85,19 @@ a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
   text-align: center;
 }
 
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+
 /* 7. POST CARD */
 .post-card {
   background: var(--light-bg);
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 1rem 0;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
@@ -121,8 +130,10 @@ a:hover, a:focus, .pixel-button:hover, .pixel-button:focus {
 
 /* 8. SECTION & GRID LAYOUTS */
 .section {
-  margin-bottom: 3rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
+
 
 .grid {
   display: grid;
@@ -261,9 +272,10 @@ header {
 .carousel {
   display: flex;
   overflow-x: auto;
-  gap: 1rem;
   scroll-snap-type: x mandatory;
-  padding: 1rem 0;
+  padding: 2rem 1rem;
+  gap: 1rem;
+  
 }
 
 .carousel::-webkit-scrollbar {
@@ -284,6 +296,7 @@ header {
   padding: 1rem;
   scroll-snap-align: start;
   transition: transform 0.3s ease;
+  margin-right: 0.5rem;
 }
 
 .carousel-item:hover {
@@ -297,11 +310,180 @@ header {
 }
 
 .post-card img {
-  width: 100%;           /* make image full width of card */
-  height: 180px;         /* fixed height, adjust as needed */
-  object-fit: cover;     /* crop to fill the box without distortion */
-  border-radius: 6px;    /* optional, match card radius */
-  display: block;        /* removes inline spacing below images */
+  width: 100%;          
+  height: 180px;        
+  object-fit: cover;    
+  border-radius: 6px;   
+  display: block;       
 }
 
+.newsletter {
+  padding: 3rem 2rem;
+  text-align: center;
+}
 
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.subscribe-form input {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.subscribe-form button {
+  background: var(--primary);
+  color: var(--bg);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.subscribe-form button:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.latest-news ul {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  list-style: none;
+}
+
+.latest-news li {
+  flex: 0 0 auto;
+  background: var(--light-bg);
+  border: 2px solid var(--border);
+  padding: 1rem;
+  border-radius: 6px;
+  min-width: 200px;
+}
+
+.blog-post {
+  padding: 2rem 1rem;
+  background: var(--light-bg);
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+  line-height: 1.8;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.post-header h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.6rem;
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(246, 193, 193, 0.7);
+}
+
+.post-meta {
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  margin: 2rem 0;
+  border-radius: 6px;
+  border: 3px solid var(--border);
+}
+
+/* Blog content styling (Markdown body) */
+.post-content {
+  font-size: 1.1rem;
+  color: var(--fg);
+  line-height: 1.8;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--accent);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.post-content h1 {
+  font-size: 1.6rem;
+}
+
+.post-content h2 {
+  font-size: 1.3rem;
+}
+
+.post-content h3 {
+  font-size: 1.1rem;
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+}
+
+.post-content a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.post-content a:hover {
+  color: var(--link-hover);
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  margin-left: 0;
+  color: var(--accent);
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 2rem auto;
+  display: block;
+  border: 3px solid var(--border);
+}
+
+.post-content pre,
+.post-content code {
+  font-family: monospace;
+  background-color: #1b1b1b;
+  color: var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  display: block;
+  margin-bottom: 1.5rem;
+}

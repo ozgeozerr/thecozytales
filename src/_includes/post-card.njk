@@ -1,14 +1,18 @@
-<div class="post-card">
+<article class="post-card pixel-border">
   {% if headerImage %}
-    <div class="image-wrapper">
-      <img src="{{ headerImage }}" alt="Header image for {{ title }}">
-    </div>
+    <img src="{{ headerImage }}" alt="Header image for {{ title }}" class="post-card-img">
   {% endif %}
-  <a href="{{ url }}">
-    <h2>{{ title }}</h2>
-  </a>
-  <p>{{ excerpt }}</p>
-  {% if date %}
-    <time datetime="{{ date }}">{{ date | date }}</time>
-  {% endif %}
-</div>
+  <div class="post-card-content">
+    {% set category = url | getCategoryFromUrl %}
+    {% if category %}
+      <span class="category-badge">{{ category }}</span>
+    {% endif %}
+    <a href="{{ url }}">
+      <h2>{{ title }}</h2>
+    </a>
+    <p>{{ excerpt }}</p>
+    {% if date %}
+      <time datetime="{{ date }}"><i class="far fa-calendar"></i> {{ date | date("MMMM d, yyyy") }}</time>
+    {% endif %}
+  </div>
+</article>

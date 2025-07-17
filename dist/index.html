@@ -12,6 +12,7 @@
   <meta property="og:description" content="">
   <meta property="og:url" content="/">
   <meta property="og:type" content="website">
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "29ca192c582b4a389608a7d046dd9104"}'></script><!-- End Cloudflare Web Analytics -->
 
 </head>
 <body>
@@ -24,7 +25,6 @@
     <li><a href="/crafts-arts/">Crafts &amp; Arts</a></li>
     <li><a href="/tales/">Tales & Stories</a></li>
     <li><a href="/about/">About</a></li>
-    <li><a href="/subscribe/">Subscribe</a></li>
   </ul>
 </nav>
 
@@ -32,10 +32,13 @@
 
   <main>
     
-
 <section class="hero container section">
   <h1>The Cozy Tales</h1>
   <p>Your warm corner for pixel art, indie games, crafts, and heartwarming stories.</p>
+  <div class="hero-buttons">
+    <a href="#featured" class="btn btn-primary">Explore Posts</a>
+    <a href="/subscribe/" class="btn btn-secondary">Join Community</a>
+  </div>
 </section>
 
 <section class="latest-news container section scroll-box">
@@ -46,9 +49,8 @@
   <p><a href="/latest-news/">See all news →</a></p>
 </section>
 
-
-<section class="latest-posts-carousel">
-  <h2>Latest Posts</h2>
+<section id="featured" class="container section">
+  <h2 class="section-title">Latest Posts</h2>
   <div class="carousel">
     
       
@@ -56,78 +58,80 @@
       
       
       
-      <div class="post-card">
+      <article class="post-card pixel-border">
   
-    <div class="image-wrapper">
-      <img src="/assets/css/images/1.jpeg" alt="Header image for zelda">
-    </div>
-  
-  <a href="/posts/game-blogs/zelda/">
-    <h2>zelda</h2>
-  </a>
-  <p>Exploring the best cozy pixel games this year.</p>
-  
-    <time datetime="Sun Jul 13 2025 03:00:00 GMT+0300 (GMT+03:00)">2025-07-13</time>
-  
-</div>
-
+  <div class="post-card-content">
+    
+    
+      <span class="category-badge">Posts</span>
+    
+    <a href="/posts/game-blogs/sdfsdfsdf/">
+      <h2>sdfsdfsdf</h2>
+    </a>
+    <p>sfsdf</p>
+    
+      <time datetime="Mon Jul 14 2025 21:27:39 GMT+0300 (GMT+03:00)"><i class="far fa-calendar"></i> 7/14/2025</time>
+    
+  </div>
+</article>
     
       
       
       
       
       
-      <div class="post-card">
+      <article class="post-card pixel-border">
   
-  <a href="/posts/game-blogs/test/">
-    <h2>Test Post</h2>
-  </a>
-  <p>Test excerpt</p>
-  
-    <time datetime="Sun Jul 13 2025 03:00:00 GMT+0300 (GMT+03:00)">2025-07-13</time>
-  
-</div>
-
+  <div class="post-card-content">
+    
+    
+      <span class="category-badge">Posts</span>
+    
+    <a href="/posts/game-blogs/test/">
+      <h2>Test Post</h2>
+    </a>
+    <p>Test excerpt</p>
+    
+      <time datetime="Sun Jul 13 2025 03:00:00 GMT+0300 (GMT+03:00)"><i class="far fa-calendar"></i> 7/13/2025</time>
+    
+  </div>
+</article>
     
   </div>
 </section>
 
-
-
-
-<section class="featured-posts container section">
-  <h2>Featured Game Blogs</h2>
+<section class="container section">
+  <h2 class="section-title">Featured Game Blogs</h2>
   <div class="grid">
     
   </div>
-  <p><a href="/game-blogs/">View all game blogs →</a></p>
+  <p class="text-center"><a href="/game-blogs/" class="btn btn-secondary">View all game blogs</a></p>
 </section>
 
-
-<section class="featured-posts container section">
-  <h2>Featured Crafts &amp; Arts</h2>
+<section class="container section">
+  <h2 class="section-title">Featured Crafts &amp; Arts</h2>
   <div class="grid">
     
   </div>
-  <p><a href="/crafts-arts/">View all crafts & arts →</a></p>
+  <p class="text-center"><a href="/crafts-arts/" class="btn btn-secondary">View all crafts & arts</a></p>
 </section>
 
-
-<section class="featured-posts container section">
-  <h2>Featured Tales &amp; Stories</h2>
+<section class="container section">
+  <h2 class="section-title">Featured Tales &amp; Stories</h2>
   <div class="grid">
     
   </div>
-  <p><a href="/tales/">Read all tales →</a></p>
+  <p class="text-center"><a href="/tales/" class="btn btn-secondary">Read all tales</a></p>
 </section>
 
-
-<section class="subscribe-cta container section text-center">
-  <h2>Stay Cozy</h2>
-  <p>Get the latest posts and exclusive stories delivered to your inbox.</p>
-  <a href="/subscribe/" class="pixel-button">Subscribe Now</a>
+<section class="newsletter container section pixel-border">
+  <h2> Stay Cozy </h2>
+  <p>Get the latest posts, exclusive content, and creative resources delivered to your inbox!</p>
+  <form class="subscribe-form">
+    <input type="email" placeholder="Your email address" required>
+    <button type="submit">Subscribe</button>
+  </form>
 </section>
-
   </main>
 
   <footer>
