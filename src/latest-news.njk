@@ -6,18 +6,32 @@ pagination:
   data: collections.latestNews
   size: 10
   alias: posts
+class: "category-page"
 ---
+<div class="container">
+  <section class="site-header section">
+    <h1 class="site-title">📰 Latest News</h1>
+    <p class="site-tagline">Stay updated with the latest happenings in our cozy corner!</p>
+    <span class="hero-accent">✦ ✧ ✦</span>
+  </section>
 
-<h1>Latest News</h1>
-<ul class="post-list">
-  {% for postItem in posts %}
-    {% set url     = postItem.url %}
-    {% set title   = postItem.data.title %}
-    {% set excerpt = postItem.data.excerpt %}
-    {% set date    = postItem.data.date %}
-    {% set headerImage = postItem.data.headerImage %}
-    {% include "post-card.njk" %}
-  {% else %}
-    <li>No news posts yet.</li>
-  {% endfor %}
-</ul>
+  <section class="section">
+    <ul class="post-list">
+      {% for postItem in posts %}
+        {% set url = postItem.url %}
+        {% set title = postItem.data.title %}
+        {% set excerpt = postItem.data.excerpt %}
+        {% set date = postItem.data.date %}
+        {% set headerImage = postItem.data.headerImage %}
+        {% include "post-card.njk" %}
+      {% else %}
+        <li class="no-posts-message">
+          <div class="pixel-border" style="padding: 2rem; text-align: center; background: var(--light-bg);">
+            <h3> No News Posts Yet! </h3>
+            <p>We're gathering the latest updates! Check back soon!</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>

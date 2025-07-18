@@ -1,8 +1,10 @@
 module.exports = function (eleventyConfig) {
+  // Copy assets and admin files
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy("src/_redirects");
   eleventyConfig.addPassthroughCopy("src/admin");
 
+  // Latest added posts collection
   eleventyConfig.addCollection("latestAddedPosts", (collectionApi) => {
     return collectionApi
       .getAll()
@@ -21,11 +23,27 @@ module.exports = function (eleventyConfig) {
     const date = new Date(dateObj);
     if (isNaN(date.getTime())) return ""; // Invalid date
 
+    // Handle different date formats
     if (format === "yyyy-MM-dd") {
       const yyyy = date.getFullYear();
       const mm = String(date.getMonth() + 1).padStart(2, "0");
       const dd = String(date.getDate()).padStart(2, "0");
       return `${yyyy}-${mm}-${dd}`;
+    }
+
+    if (format === "MMM d") {
+      return new Intl.DateTimeFormat("en-US", {
+        month: "short",
+        day: "numeric",
+      }).format(date);
+    }
+
+    if (format === "MMMM d, yyyy") {
+      return new Intl.DateTimeFormat("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      }).format(date);
     }
 
     // Fallback to localized US format
@@ -42,28 +60,26 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("latestNews", (collectionApi) =>
     collectionApi.getFilteredByTag("latestNews")
   );
+
   eleventyConfig.addCollection("craftsArts", (collectionApi) =>
     collectionApi.getFilteredByTag("craftsArts")
   );
-  eleventyConfig.addCollection("tales", (collectionApi) =>
-    collectionApi.getFilteredByTag("tales")
+
+  eleventyConfig.addCollection("bookBlogs", (collectionApi) =>
+    collectionApi.getFilteredByTag("bookBlogs")
   );
 
-  eleventyConfig.addPassthroughCopy("src/admin");
-
-  // Get parent section name from URL
+  // URL helper filters
   eleventyConfig.addFilter("getParentName", function (url) {
     const parts = url.split("/").filter((part) => part);
     return parts.length > 1 ? parts[0].replace(/-/g, " ") : "Home";
   });
 
-  // Get parent URL
   eleventyConfig.addFilter("getParentUrl", function (url) {
     const parts = url.split("/").filter((part) => part);
     return parts.length > 1 ? `/${parts[0]}/` : "/";
   });
 
-  // Get category from URL
   eleventyConfig.addFilter("getCategoryFromUrl", function (url) {
     const parts = url.split("/").filter((part) => part);
     if (parts.length > 1) {
@@ -73,6 +89,11 @@ module.exports = function (eleventyConfig) {
         .join(" ");
     }
     return null;
+  });
+
+  // String slice filter for excerpts
+  eleventyConfig.addFilter("slice", function (array, start, end) {
+    return array.slice(start, end);
   });
 
   return {

@@ -69,16 +69,3 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", default: ["latestNews"] }
 
-  - name: "tales"
-    label: "Tales"
-    folder: "src/posts/tales"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Header Image", name: "headerImage", widget: "image", required: false }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list", default: ["tales"] }

@@ -20,7 +20,7 @@
     {% include "navbar.njk" %}
   </header>
 
-  <main>
+  <main class="{{ page.class | default('') }}">
     {{ content | safe }}
   </main>
 
@@ -29,4 +29,3 @@
   </footer>
 </body>
 </html>
-

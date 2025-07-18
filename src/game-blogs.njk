@@ -6,21 +6,30 @@ pagination:
   data: collections.gameBlogs
   size: 10
   alias: posts
+class: "category-page container" 
 ---
+<section class="site-header container section">
+  <h1 class="site-title">🎮 Game Blogs</h1>
+  <p class="site-tagline">Cozy indie game reviews, pixel art showcases, and gaming adventures that warm the heart!</p>
+  <span class="hero-accent">✦ ✧ ✦</span>
+</section>
 
-<h1>Game Blogs</h1>
-
-<ul class="post-list">
-  {% for postItem in posts %}
-    {# 1. Pull out the data into local variables #}
-    {% set url     = postItem.url %}
-    {% set title   = postItem.data.title %}
-    {% set excerpt = postItem.data.excerpt %}
-    {% set date    = postItem.data.date %}
-    {# 2. Include the post-card which now sees url, title, excerpt, date #}
-    {% set headerImage = postItem.data.headerImage %}
-    {% include "post-card.njk" %}
-  {% else %}
-    <li>No game blog posts yet.</li>
-  {% endfor %}
-</ul>
+<section class="container section">
+  <ul class="post-list">
+    {% for postItem in posts %}
+      {% set url = postItem.url %}
+      {% set title = postItem.data.title %}
+      {% set excerpt = postItem.data.excerpt %}
+      {% set date = postItem.data.date %}
+      {% set headerImage = postItem.data.headerImage %}
+      {% include "post-card.njk" %}
+    {% else %}
+      <li class="no-posts-message">
+        <div class="pixel-border" style="padding: 2rem; text-align: center; background: var(--light-bg);">
+          <h3>🎮 No Game Blog Posts Yet! 🎮</h3>
+          <p>We're working on some cozy game reviews! Check back soon for indie game gems and pixel art showcases.</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

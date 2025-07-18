@@ -2,14 +2,10 @@
 layout: base.njk
 title: The Cozy Tales
 ---
-
-<section class="hero container section">
-  <h1>The Cozy Tales</h1>
-  <p>Your warm corner for pixel art, indie games, crafts, and heartwarming stories.</p>
-  <div class="hero-buttons">
-    <a href="#featured" class="btn btn-primary">Explore Posts</a>
-    <a href="/subscribe/" class="btn btn-secondary">Join Community</a>
-  </div>
+<section class="site-header container section">
+  <h1 class="site-title">The Cozy Tales</h1>
+  <p class="site-tagline">Your warm corner for pixel art, indie games, crafts, and heartwarming stories. Come snuggle up with creativity and imagination! 🌸</p>
+  <span class="hero-accent">✦ ✧ ✦</span>
 </section>
 
 <section class="latest-news container section scroll-box">
@@ -25,9 +21,19 @@ title: The Cozy Tales
   <p><a href="/latest-news/">See all news →</a></p>
 </section>
 
+<!-- Ad Space #1 - After Latest News -->
+<section class="container section">
+  <div class="index-ad-banner">
+    <h3 class="ad-label">✨ Sponsors ✨</h3>
+    <div class="ad-space ad-banner">
+      <p>Your Banner Ad Here<br>728x90 or 970x250<br>Perfect for Brand Awareness!</p>
+    </div>
+  </div>
+</section>
+
 <section id="featured" class="container section">
   <h2 class="section-title">Latest Posts</h2>
-  <div class="carousel">
+  <div class="latest-posts-grid">
     {% for post in collections.latestAddedPosts %}
       {% set url = post.url %}
       {% set title = post.data.title %}
@@ -54,6 +60,15 @@ title: The Cozy Tales
   <p class="text-center"><a href="/game-blogs/" class="btn btn-secondary">View all game blogs</a></p>
 </section>
 
+<!-- Ad Space #2 - Between Game Blogs and Crafts -->
+<section class="container section">
+  <div class="index-ad-section">
+    <div class="ad-space ad-rectangle">
+      <p>Featured Products<br>300x250 Rectangle<br>Great for Affiliate Links!</p>
+    </div>
+  </div>
+</section>
+
 <section class="container section">
   <h2 class="section-title">Featured Crafts &amp; Arts</h2>
   <div class="grid">
@@ -70,9 +85,9 @@ title: The Cozy Tales
 </section>
 
 <section class="container section">
-  <h2 class="section-title">Featured Tales &amp; Stories</h2>
+  <h2 class="section-title">Featured Books</h2>
   <div class="grid">
-    {% for post in collections.tales | slice(0,3) %}
+    {% for post in collections.bookBlogs | slice(0,3) %}
       {% set url = post.url %}
       {% set title = post.data.title %}
       {% set excerpt = post.data.excerpt %}
@@ -81,7 +96,17 @@ title: The Cozy Tales
       {% include "post-card.njk" %}
     {% endfor %}
   </div>
-  <p class="text-center"><a href="/tales/" class="btn btn-secondary">Read all tales</a></p>
+  <p class="text-center"><a href="/book-blogs/" class="btn btn-secondary">Read all books</a></p>
+</section>
+
+<!-- Ad Space #3 - Before Newsletter -->
+<section class="container section">
+  <div class="index-ad-banner">
+    <h3 class="ad-label">🧸 Bear-y Special Offers 🧸</h3>
+    <div class="ad-space ad-banner">
+      <p>Another Banner Spot<br>728x90 Leaderboard<br>Perfect for Special Promotions!</p>
+    </div>
+  </div>
 </section>
 
 <section class="newsletter container section pixel-border">

@@ -1,17 +1,99 @@
-{% extends "base.njk" %}
-
+---
+layout: base.njk
+class: "blog-post-wrapper"
+---
 {% block content %}
-  <div class="blog-post-wrapper">
-    <article class="blog-post">
-      <h1>{{ title }}</h1>
-
-      {% if headerImage %}
-        <img src="{{ headerImage }}" alt="Header image for {{ title }}" class="post-image" />
-      {% endif %}
-
-      <div class="post-content">
-        {{ content | safe }}
+  <div class="blog-content-area">
+    <!-- Main Blog Post -->
+    <div class="blog-post">
+      <article>
+        <h1>{{ title }}</h1>
+        
+        {% if date %}
+          <div class="post-meta">
+            <span class="post-date">✦ {{ date | date("MMMM d, yyyy") }} ✦</span>
+            {% set category = page.url | getCategoryFromUrl %}
+            {% if category %}
+              <span class="post-category">{{ category }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+        
+        {% if headerImage %}
+          <img src="{{ headerImage }}" alt="Header image for {{ title }}" class="post-image" />
+        {% endif %}
+        
+        <div class="post-content">
+          {{ content | safe }}
+        </div>
+        
+      
+      </article>
+    </div>
+    
+    <!-- Sidebar -->
+    <aside class="blog-sidebar">
+      <!-- Ad Space #1 - Banner -->
+      <div class="sidebar-section">
+        <div class="ad-space ad-large">
+          <p>Your Ad Here<br>300x600 Skyscraper<br>Perfect for Display Ads!</p>
+        </div>
       </div>
-    </article>
+      
+      <!-- Recommended Posts -->
+      <div class="sidebar-section">
+        <h3>✨ You Might Like ✨</h3>
+        {% for post in collections.latestAddedPosts | slice(0, 3) %}
+          {% if post.url != page.url %}
+            <div class="recommended-post">
+              <a href="{{ post.url }}">
+                {% if post.data.headerImage %}
+                  <img src="{{ post.data.headerImage }}" alt="{{ post.data.title }}" />
+                {% endif %}
+                <h4>{{ post.data.title }}</h4>
+                <p>{{ post.data.excerpt | slice(0, 80) }}{% if post.data.excerpt.length > 80 %}...{% endif %}</p>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      
+      <!-- Ad Space #2 - Square -->
+      <div class="sidebar-section">
+        <div class="ad-space ad-square">
+          <p>Square Ad Space<br>300x300<br>Great for Product Ads!</p>
+        </div>
+      </div>
+      
+      <!-- Newsletter Signup -->
+      <div class="sidebar-section">
+        <div class="sidebar-newsletter">
+          <h3>🧸 Stay Cozy!</h3>
+          <p>Get weekly doses of pixel art, game reviews & crafty inspiration!</p>
+          <form>
+            <input type="email" placeholder="Your email..." required>
+            <button type="submit">Join the Den!</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Social Links -->
+      <div class="sidebar-section">
+        <h3>🌸 Follow Us 🌸</h3>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Twitter">🐦</a>
+          <a href="#" class="social-link" title="Instagram">📷</a>
+          <a href="#" class="social-link" title="YouTube">📺</a>
+          <a href="#" class="social-link" title="Pinterest">📌</a>
+        </div>
+      </div>
+      
+      <!-- Ad Space #3 - Another Banner -->
+      <div class="sidebar-section">
+        <div class="ad-space">
+          <p>Another Ad Spot<br>300x250<br>Medium Rectangle!</p>
+        </div>
+      </div>
+    </aside>
   </div>
 {% endblock %}
