@@ -12,22 +12,55 @@
   <meta property="og:description" content="">
   <meta property="og:url" content="/subscribe/">
   <meta property="og:type" content="website">
-  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "29ca192c582b4a389608a7d046dd9104"}'></script><!-- End Cloudflare Web Analytics -->
-
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "29ca192c582b4a389608a7d046dd9104"}'></script>
+  
 </head>
 <body>
   <header>
     <nav class="pixel-nav">
-  <ul>
+  <!-- Logo/Brand (optional) -->
+  <div class="nav-brand">
+    <a href="/" style="font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: var(--accent); text-decoration: none;">Cozy Tales</a>
+  </div>
+  
+  <!-- Navigation Links -->
+  <ul class="nav-menu">
     <li><a href="/">Home</a></li>
     <li><a href="/latest-news/">Latest News</a></li>
-    <li><a href="/game-blogs/">Game Blogs</a></li>
-    <li><a href="/crafts-arts/">Crafts and Arts</a></li>
+    <li><a href="/game-blogs/">Games</a></li>
+    <li><a href="/crafts-arts/">Crafts &amp; Arts</a></li>
     <li><a href="/book-blogs/">Books</a></li>
-    <li><a href="/about/">About</a></li>
   </ul>
+  
+  <!-- Mobile Menu Toggle -->
+  <div class="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  navToggle.addEventListener('click', function() {
+    navToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+  
+  // Close menu when clicking on a link
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
+});
+</script>
   </header>
 
   <main class="">

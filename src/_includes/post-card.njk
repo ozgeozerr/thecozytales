@@ -4,9 +4,6 @@
   {% endif %}
   <div class="post-card-content">
     {% set category = url | getCategoryFromUrl %}
-    {% if category %}
-      <span class="category-badge">{{ category }}</span>
-    {% endif %}
     <a href="{{ url }}">
       <h2>{{ title }}</h2>
     </a>

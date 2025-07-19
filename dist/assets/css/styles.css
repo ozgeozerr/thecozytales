@@ -3,16 +3,16 @@
 
 /* 2. EXTENDED COLOR PALETTE - Dark green with soft pink accents + caramel bear colors */
 :root {
-  --bg: #142f28;              
-  --fg: #d6e8d6;              
-  --accent: #f6c1c1;          
+  --bg: #03251c;              
+  --fg: #f1dee8;              
+  --accent: #f3c6e3;          
   --primary: #a9d18e;        
   --border: #7cbf7c;          
-  --light-bg: #1f4233;        
+  --light-bg: #1c5a3f;        
   --scroll-bg: #264d3c;       
   --hover-bg: #3a6f51;        
-  --link-hover: #f6c1c1;
-  --blog-bg: #f9dbdb;         /* Much lighter pink background for blog posts */
+  --link-hover: #f7ddf7;
+  --blog-bg: #f9dbdb;         
   
   /* CARAMEL BEAR COLORS */
   --caramel: #D2A066;         /* Main caramel brown */
@@ -52,14 +52,14 @@ body {
   flex-direction: column;
 }
 
-/* Improved pixelated border mixin */
+/* pixelated border mixin */
 .pixel-border {
   border: 3px solid var(--border);
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
 
-/* 4. IMPROVED TYPOGRAPHY */
+/* 4. TYPOGRAPHY */
 h1, h2, h3, h4 {
   font-family: 'Press Start 2P', cursive;
   color: var(--accent);
@@ -104,7 +104,7 @@ a:hover::after {
 
 /* 5. IMPROVED LAYOUT UTILITIES */
 .container {
-  max-width: 1000px; /* FIXED: Made container smaller */
+  max-width: 1000px; 
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 2rem);
   width: 100%;
@@ -160,19 +160,12 @@ main {
 .hero p {
   font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   margin-bottom: 2rem;
-  max-width: 600px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  opacity: 0.9;
 }
 
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
+
 
 /* 7. IMPROVED BUTTON STYLES */
 .btn {
@@ -230,14 +223,14 @@ main {
 
 /* 8. IMPROVED SECTION LAYOUTS */
 .section {
-  margin: 4rem 0;
-  padding: 1rem 0;
+  margin: 2rem 0;
+  padding: 0.5rem 0; 
 }
 
 .section-title {
   position: relative;
-  padding-bottom: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem; 
+  padding-bottom: 1rem; 
   font-size: clamp(1.8rem, 4vw, 2.2rem);
   font-weight: 700;
   color: var(--accent);
@@ -252,7 +245,7 @@ main {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--primary));
+  background: rgb(243, 220, 236);
   border-radius: 2px;
 }
 
@@ -260,8 +253,8 @@ main {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 1.5rem; 
+  margin-bottom: 1.5rem;
 }
 
 .featured-posts {
@@ -277,13 +270,13 @@ main {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* FIXED: Increased from 400px to 350px for better responsiveness */
-  gap: 2.5rem; /* FIXED: Increased gap */
+  gap: 2rem;
 }
 
 /* Category page specific styling */
 .category-page .post-list {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* FIXED: Bigger cards for category pages */
-  gap: 3rem;
+   gap: 2.5rem;
 }
 
 .category-page .post-card {
@@ -297,47 +290,63 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 0.75rem 0;
+  padding: 0;
   backdrop-filter: blur(10px);
+  min-height: 60px;
 }
-
+/* FIXED HORIZONTAL NAVBAR */
 .pixel-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1000px; /* FIXED: Made navbar container smaller */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 2rem);
+  height: 60px; /* FIXED: Set specific height for thin navbar */
 }
 
-.pixel-nav ul {
+.nav-brand a {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav-menu {
   list-style: none;
   display: flex;
   gap: 1.5rem;
   margin: 0;
   padding: 0;
+  align-items: center; /* FIXED: Center align items */
 }
 
-.pixel-nav a {
+.nav-menu li {
+  margin: 0; /* FIXED: Remove any list margins */
+}
+
+.nav-menu a {
   text-decoration: none;
-  color: var(--primary);
-  padding: 0.75rem 1.25rem;
+  color: #c8e6c9; /* Lighter green as requested */
+  padding: 0.5rem 1rem; /* FIXED: Reduced padding for thinner look */
   border: 2px solid transparent;
   border-radius: 8px;
   transition: all var(--transition);
-  font-weight: 500;
+  font-weight: 700; /* Bold as requested */
+  font-size: 0.9rem; /* FIXED: Slightly smaller for thin navbar */
+  white-space: nowrap; /* FIXED: Prevent text wrapping */
 }
 
-.pixel-nav a:hover,
-.pixel-nav a:focus {
+.nav-menu a:hover,
+.nav-menu a:focus {
   border-color: var(--accent);
   color: var(--accent);
   background: rgba(246, 193, 193, 0.1);
   transform: translateY(-2px);
 }
 
-/* FIXED: Remove the default underline from navbar links */
-.pixel-nav a:hover::after {
+/* Remove the default underline from navbar links */
+.nav-menu a:hover::after {
   display: none;
 }
 
@@ -358,6 +367,60 @@ header {
   background: var(--fg);
   border-radius: 2px;
   transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    flex-direction: column;
+    background: var(--light-bg);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    padding: 2rem 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .nav-menu li {
+    margin: 0.5rem 0;
+  }
+  
+  .nav-toggle {
+    display: flex;
+  }
+  
+  .nav-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
+}
+
+/* Ensure header container matches navbar */
+header {
+  background: var(--light-bg);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0; /* FIXED: Remove extra padding */
+  backdrop-filter: blur(10px);
+  min-height: 60px; /* FIXED: Match navbar height */
 }
 
 /* Mobile menu improvements */
@@ -453,21 +516,21 @@ header {
 
 /* 12. SIMPLE PIXEL ART HERO HEADER */
 .site-header {
-  padding: 4rem 2rem 3rem;
+  padding: 3rem 2rem 2rem;
   background: linear-gradient(135deg, var(--light-bg) 0%, var(--scroll-bg) 100%);
   border-radius: 12px;
-  margin: 2rem 0 4rem;
+  margin: 1rem 0 2rem;
   position: relative;
   text-align: center;
   border: 4px solid var(--border);
-  /* Pixel art style border effect */
-  box-shadow: 
+  box-shadow:
     inset 2px 2px 0px rgba(246, 193, 193, 0.3),
     inset -2px -2px 0px rgba(0, 0, 0, 0.2),
     4px 4px 0px rgba(0, 0, 0, 0.15);
+  max-width: none; 
+
 }
 
-/* Subtle inner glow - no animation */
 .site-header::before {
   content: '';
   position: absolute;
@@ -492,10 +555,9 @@ header {
 .site-title {
   font-family: 'Press Start 2P', cursive;
   color: var(--accent);
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
   margin-bottom: 1.5rem;
-  line-height: 1.3;
-  /* Subtle pixel art text effect */
+  line-height: 1;
   text-shadow: 
     2px 2px 0px rgba(246, 193, 193, 0.7),
     4px 4px 0px rgba(0, 0, 0, 0.2);
@@ -503,15 +565,14 @@ header {
 }
 
 .site-tagline {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--fg);
   opacity: 0.9;
-  max-width: 700px;
+  max-width: 1000px;
   margin: 0 auto;
-  line-height: 1.6;
-  font-weight: 500;
+  line-height: 1.3;
+  font-weight: 600;
   padding: 0 1rem;
-  /* Subtle text shadow for depth */
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -545,7 +606,7 @@ header {
   opacity: 0.8;
 }
 
-/* 13. IMPROVED IMAGES */
+/* 13. IMAGES */
 img {
   max-width: 100%;
   height: auto;
@@ -563,13 +624,13 @@ img {
   box-shadow: var(--shadow);
 }
 
-/* 14. IMPROVED NEWSLETTER */
+/* 14. NEWSLETTER */
 .newsletter {
   padding: 3rem 2rem;
   text-align: center;
   background: linear-gradient(135deg, var(--light-bg) 0%, var(--scroll-bg) 100%);
   border-radius: 16px;
-  margin: 4rem 0;
+   margin: 2rem 0;
   box-shadow: var(--shadow);
 }
 
@@ -627,7 +688,7 @@ img {
   box-shadow: 0 6px 20px rgba(246, 193, 193, 0.4);
 }
 
-/* 15. FIXED BLOG LAYOUT WITH SIDEBAR */
+/* 15. BLOG LAYOUT WITH SIDEBAR */
 .blog-post-wrapper {
   display: flex;
   justify-content: center;
@@ -732,47 +793,34 @@ img {
   letter-spacing: 1px;
 }
 
-/* Post meta with bear theme */
-.post-meta {
-  text-align: center;
-  margin-bottom: 2rem;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, var(--caramel-light), var(--honey));
-  border-radius: 20px;
-  border: 2px solid var(--caramel);
-  box-shadow: 
-    inset 1px 1px 0px rgba(255, 255, 255, 0.4),
-    2px 2px 0px rgba(139, 90, 58, 0.2);
-}
 
 .post-date {
+  text-align: center;
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
+  font-size: 0.6rem; 
   color: var(--cocoa);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px; 
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem; 
 }
 
 .post-category {
   background: var(--caramel-dark);
   color: var(--honey);
-  font-size: 0.8rem;
-  padding: 0.4rem 1rem;
-  border-radius: 15px;
+  font-size: 0.7rem; /* REDUCED: from 0.8rem to 0.7rem */
+  padding: 0.2rem 0.6rem; /* REDUCED: from 0.4rem 1rem */
+  border-radius: 10px; /* REDUCED: from 15px to 10px */
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px; /* REDUCED: from 0.5px */
   display: inline-block;
-  /* Bear paw button effect */
   box-shadow: 
     inset 1px 1px 0px rgba(244, 212, 147, 0.5),
     inset -1px -1px 0px rgba(139, 90, 58, 0.5),
-    2px 2px 0px rgba(139, 90, 58, 0.3);
+    1px 1px 0px rgba(139, 90, 58, 0.3); /* REDUCED: from 2px 2px */
   border: 1px solid var(--cocoa);
 }
 
-/* Enhanced image styling */
 .blog-post .post-image {
   width: 100%;
   max-height: 400px;
@@ -803,17 +851,17 @@ img {
   color: #2c2c2c;
 }
 
-/* FIXED: Made post titles darker brown */
+
 .post-content h2 {
   font-family: 'Press Start 2P', cursive;
   font-size: clamp(1.4rem, 3vw, 1.8rem);
   margin-top: 3rem;
   margin-bottom: 1.5rem;
-  color: #6B4226; /* FIXED: Much darker brown than var(--caramel-dark) */
+  color: #6B4226; 
   line-height: 1.4;
   text-shadow: 
     1px 1px 0px var(--honey),
-    2px 2px 0px rgba(107, 66, 38, 0.3); /* FIXED: Updated shadow color */
+    2px 2px 0px rgba(107, 66, 38, 0.3);
   letter-spacing: 1px;
   position: relative;
   padding-bottom: 1rem;
@@ -828,7 +876,7 @@ img {
   height: 3px;
   background: repeating-linear-gradient(
     90deg,
-    #6B4226 0px, /* FIXED: Used darker brown */
+    #6B4226 0px,
     #6B4226 8px,
     transparent 8px,
     transparent 12px,
@@ -844,7 +892,7 @@ img {
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  color: #6B4226; /* FIXED: Darker brown for h3 too */
+  color: #6B4226;
   line-height: 1.4;
   text-shadow: 
     1px 1px 0px var(--caramel-light),
@@ -1314,8 +1362,8 @@ img {
 
 /* 16. HORIZONTAL CAROUSEL - FIXED */
 .latest-posts {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
@@ -1520,7 +1568,7 @@ footer {
 .index-ad-banner,
 .index-ad-section {
   text-align: center;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
 
 .ad-label {
@@ -1773,9 +1821,20 @@ footer {
     right: 8px;
     height: 3px;
   }
-  
+ 
+ 
   .post-meta {
-    padding: 0.8rem 1.5rem;
+    text-align: center; /* FIXED: was text-align: start */
+    margin-bottom: 1rem; /* REDUCED: from 1.5rem to 1rem */
+    padding: 0.5rem 1rem; 
+    background: linear-gradient(135deg, var(--caramel-light), var(--honey));
+    border-radius: 12px; /* REDUCED: from 20px to 12px for smaller look */
+    border: 2px solid var(--caramel);
+    box-shadow:
+      inset 1px 1px 0px rgba(255, 255, 255, 0.4),
+      2px 2px 0px rgba(139, 90, 58, 0.2);
+    display: inline-block; /* ADDED: Makes it only as wide as content */
+    max-width: fit-content; /* ADDED: Ensures minimal width */
   }
   
   .blog-post h1 {
@@ -1822,10 +1881,12 @@ footer {
   
   .post-card-content h2 {
     -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
   
   .post-card-content p {
     -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
   
   .subscribe-form {

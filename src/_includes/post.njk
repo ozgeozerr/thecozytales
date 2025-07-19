@@ -13,9 +13,7 @@ class: "blog-post-wrapper"
           <div class="post-meta">
             <span class="post-date">✦ {{ date | date("MMMM d, yyyy") }} ✦</span>
             {% set category = page.url | getCategoryFromUrl %}
-            {% if category %}
-              <span class="post-category">{{ category }}</span>
-            {% endif %}
+            
           </div>
         {% endif %}
         
@@ -29,17 +27,22 @@ class: "blog-post-wrapper"
         
       
       </article>
+
+      <!-- Newsletter Signup -->
+      <div class="sidebar-section">
+        <div class="sidebar-newsletter">
+          <h3>🧸 Stay Cozy!</h3>
+          <p>Get weekly doses of pixel art, game reviews & crafty inspiration!</p>
+          <form>
+            <input type="email" placeholder="Your email..." required>
+            <button type="submit">Join the Den!</button>
+          </form>
+        </div>
+      </div>
     </div>
     
     <!-- Sidebar -->
     <aside class="blog-sidebar">
-      <!-- Ad Space #1 - Banner -->
-      <div class="sidebar-section">
-        <div class="ad-space ad-large">
-          <p>Your Ad Here<br>300x600 Skyscraper<br>Perfect for Display Ads!</p>
-        </div>
-      </div>
-      
       <!-- Recommended Posts -->
       <div class="sidebar-section">
         <h3>✨ You Might Like ✨</h3>
@@ -57,43 +60,20 @@ class: "blog-post-wrapper"
           {% endif %}
         {% endfor %}
       </div>
-      
-      <!-- Ad Space #2 - Square -->
+
+       <!-- Ad Space #1 - Banner -->
       <div class="sidebar-section">
-        <div class="ad-space ad-square">
-          <p>Square Ad Space<br>300x300<br>Great for Product Ads!</p>
+        <div class="ad-space ad-large">
+          <p>Your Ad Here<br>300x600 Skyscraper<br>Perfect for Display Ads!</p>
         </div>
       </div>
       
-      <!-- Newsletter Signup -->
-      <div class="sidebar-section">
-        <div class="sidebar-newsletter">
-          <h3>🧸 Stay Cozy!</h3>
-          <p>Get weekly doses of pixel art, game reviews & crafty inspiration!</p>
-          <form>
-            <input type="email" placeholder="Your email..." required>
-            <button type="submit">Join the Den!</button>
-          </form>
-        </div>
-      </div>
+    
       
-      <!-- Social Links -->
-      <div class="sidebar-section">
-        <h3>🌸 Follow Us 🌸</h3>
-        <div class="social-links">
-          <a href="#" class="social-link" title="Twitter">🐦</a>
-          <a href="#" class="social-link" title="Instagram">📷</a>
-          <a href="#" class="social-link" title="YouTube">📺</a>
-          <a href="#" class="social-link" title="Pinterest">📌</a>
-        </div>
-      </div>
+    
+
       
-      <!-- Ad Space #3 - Another Banner -->
-      <div class="sidebar-section">
-        <div class="ad-space">
-          <p>Another Ad Spot<br>300x250<br>Medium Rectangle!</p>
-        </div>
-      </div>
+    
     </aside>
   </div>
 {% endblock %}
