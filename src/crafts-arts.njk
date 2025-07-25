@@ -6,14 +6,14 @@ pagination:
   data: collections.craftsArts
   size: 10
   alias: posts
-class: "category-page container" 
+class: "category-page"
 ---
-<section class="site-header container section">
+<section class="site-header">
   <h1 class="site-title">Crafts and Arts</h1>
   <p class="site-tagline">We looove to DIY and paint!</p>
 </section>
 
-<section class="container section">
+<section class="section">
   <ul class="post-list">
     {% for postItem in posts %}
       {% set url = postItem.url %}
@@ -24,9 +24,9 @@ class: "category-page container"
       {% include "post-card.njk" %}
     {% else %}
       <li class="no-posts-message">
-        <div class="pixel-border" style="padding: 2rem; text-align: center; background: var(--light-bg);">
+        <div class="pixel-border">
           <h3>Hey, you cannot rush art!</h3>
-          <p>Check back soon!</p>
+          <p>Check back soon for creative tutorials and crafty inspiration!</p>
         </div>
       </li>
     {% endfor %}

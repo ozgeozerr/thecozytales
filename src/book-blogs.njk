@@ -8,29 +8,27 @@ pagination:
   alias: posts
 class: "category-page"
 ---
-<div class="container">
-  <section class="site-header section">
-    <h1 class="site-title">Book Blogs</h1>
-    <p class="site-tagline">Cozy, adventurous and mysterious books!</p>
-  </section>
+<section class="site-header">
+  <h1 class="site-title"> Book Blogs</h1>
+  <p class="site-tagline">Whimsical, adventurous and mysterious books!</p>
+</section>
 
-  <section class="section">
-    <ul class="post-list">
-      {% for postItem in posts %}
-        {% set url = postItem.url %}
-        {% set title = postItem.data.title %}
-        {% set excerpt = postItem.data.excerpt %}
-        {% set date = postItem.data.date %}
-        {% set headerImage = postItem.data.headerImage %}
-        {% include "post-card.njk" %}
-      {% else %}
-        <li class="no-posts-message">
-          <div class="pixel-border" style="padding: 2rem; text-align: center; background: var(--light-bg);">
-            <h3>We are still reading!</h3>
-            <p>Check back soon!</p>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-</div>
+<section class="section">
+  <ul class="post-list">
+    {% for postItem in posts %}
+      {% set url = postItem.url %}
+      {% set title = postItem.data.title %}
+      {% set excerpt = postItem.data.excerpt %}
+      {% set date = postItem.data.date %}
+      {% set headerImage = postItem.data.headerImage %}
+      {% include "post-card.njk" %}
+    {% else %}
+      <li class="no-posts-message">
+        <div class="pixel-border">
+          <h3>We are still reading!</h3>
+          <p>Check back soon for book reviews and literary adventures!</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

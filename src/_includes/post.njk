@@ -25,20 +25,34 @@ class: "blog-post-wrapper"
           {{ content | safe }}
         </div>
         
-      
-      </article>
-
       <!-- Newsletter Signup -->
       <div class="sidebar-section">
         <div class="sidebar-newsletter">
           <h3>🧸 Stay Cozy!</h3>
           <p>Get weekly doses of pixel art, game reviews & crafty inspiration!</p>
-          <form>
-            <input type="email" placeholder="Your email..." required>
-            <button type="submit">Join the Den!</button>
-          </form>
+              <form
+                class="sidebar-newsletter-form"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSeG6Ax88MT8R91J_Ga0-qrs8j-ZG2lT5xEDM1u8vxEEuUceHA/formResponse"
+                method="POST"
+                target="_blank"
+              >
+                <input
+                  type="email"
+                  name="entry.1345713534"
+                  placeholder="Your email..."
+                  required
+                  class="sidebar-newsletter-input"
+                />
+                <button type="submit" class="sidebar-newsletter-btn">
+                  Subscribe!
+                </button>
+              </form>
+
         </div>
       </div>
+      </article>
+
+      
     </div>
     
     <!-- Sidebar -->
@@ -67,12 +81,7 @@ class: "blog-post-wrapper"
           <p>Your Ad Here<br>300x600 Skyscraper<br>Perfect for Display Ads!</p>
         </div>
       </div>
-      
-    
-      
-    
-
-      
+  
     
     </aside>
   </div>

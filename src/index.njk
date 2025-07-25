@@ -1,119 +1,254 @@
 ---
 layout: base.njk
 title: The Cozy Tales
+class: "cozy-index-wrapper"
 ---
-<section class="site-header container section">
-  <h1 class="site-title">The Cozy Tales</h1>
-  <p class="site-tagline">Your warm corner for pixel art, indie games, crafts, and heartwarming stories. Come snuggle up with creativity and imagination! 🌸</p>
 
+<!-- Caramel Bear Themed Header -->
+<section class="cozy-site-header">
+  <div class="cozy-header-content">
+    <h1 class="cozy-site-title">🧸 The Cozy Tales</h1>
+    <p class="cozy-site-tagline">Your cozy corner for games, books, crafts and all indie things! </p>
+  </div>
 </section>
 
+<!-- Main Content Area -->
+<div class="cozy-main-content">
 
-<!--
-<section class="latest-news container section scroll-box">
-  <h2>Latest News</h2>
-  <ul>
-    {% for post in collections.latestNews | slice(0, 4) %}
-      <li>
-        <a href="{{ post.url }}">{{ post.data.title }}</a>
-        <time datetime="{{ post.date }}">{{ post.date | date("MMM d") }}</time>
-      </li>
-    {% endfor %}
-  </ul>
-  <p><a href="/latest-news/">See all news →</a></p>
-</section>
-
--->
-
-<!--
-  <section class="container section">
-    <div class="index-ad-banner">
-      <h3 class="ad-label">✨ Cozy Sponsors ✨</h3>
-      <div class="ad-space ad-banner">
-        <p>Your Banner Ad Here<br>728x90 or 970x250<br>Perfect for Brand Awareness!</p>
+<!-- COZY CAROUSEL SECTION -->
+<section class="cozy-content-section">
+ 
+  <div class="cozy-carousel-wrapper">
+    <div class="carousel-decoration"></div>
+    <div class="cozy-section-header">
+        <h2 class="cozy-section-title">Latest Posts</h2>
+      </div>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        {% for post in collections.latestAddedPosts %}
+          {% set url = post.url %}
+          {% set title = post.data.title %}
+          {% set excerpt = post.data.excerpt %}
+          {% set date = post.data.date %}
+          {% set headerImage = post.data.headerImage %}
+          <div class="carousel-slide">
+            {% include "post-card.njk" %}
+          </div>
+        {% endfor %}
       </div>
     </div>
-  </section>
--->
 
-
-<section id="featured" class="container section">
-  <h2 class="section-title">Latest Posts</h2>
-  <div class="latest-posts-grid">
-    {% for post in collections.latestAddedPosts %}
-      {% set url = post.url %}
-      {% set title = post.data.title %}
-      {% set excerpt = post.data.excerpt %}
-      {% set date = post.data.date %}
-      {% set headerImage = post.data.headerImage %}
-      {% include "post-card.njk" %}
-    {% endfor %}
-  </div>
-</section>
-
-<section class="container section">
-  <h2 class="section-title">Featured Game Blogs</h2>
-  <div class="grid">
-    {% for post in collections.gameBlogs | slice(0,3) %}
-      {% set url = post.url %}
-      {% set title = post.data.title %}
-      {% set excerpt = post.data.excerpt %}
-      {% set date = post.data.date %}
-      {% set headerImage = post.data.headerImage %}
-      {% include "post-card.njk" %}
-    {% endfor %}
-  </div>
-  <p class="text-center"><a href="/game-blogs/" class="btn btn-secondary">View all game blogs</a></p>
-</section>
-
-
-
-<section class="container section">
-  <h2 class="section-title">Featured Crafts &amp; Arts</h2>
-  <div class="grid">
-    {% for post in collections.craftsArts | slice(0,3) %}
-      {% set url = post.url %}
-      {% set title = post.data.title %}
-      {% set excerpt = post.data.excerpt %}
-      {% set date = post.data.date %}
-      {% set headerImage = post.data.headerImage %}
-      {% include "post-card.njk" %}
-    {% endfor %}
-  </div>
-  <p class="text-center"><a href="/crafts-arts/" class="btn btn-secondary">View all crafts & arts</a></p>
-</section>
-
-<section class="container section">
-  <h2 class="section-title">Featured Tales &amp; Stories</h2>
-  <div class="grid">
-    {% for post in collections.tales | slice(0,3) %}
-      {% set url = post.url %}
-      {% set title = post.data.title %}
-      {% set excerpt = post.data.excerpt %}
-      {% set date = post.data.date %}
-      {% set headerImage = post.data.headerImage %}
-      {% include "post-card.njk" %}
-    {% endfor %}
-  </div>
-  <p class="text-center"><a href="/tales/" class="btn btn-secondary">Read all tales</a></p>
-</section>
-
-<!--
-<section class="container section">
-  <div class="index-ad-banner">
-    <h3 class="ad-label">🧸 Bear-y Special Offers 🧸</h3>
-    <div class="ad-space ad-banner">
-      <p>Another Banner Spot<br>728x90 Leaderboard<br>Perfect for Special Promotions!</p>
+    <!-- Navigation Buttons -->
+    <div class="carousel-navigation">
+      <button class="carousel-nav prev" id="prevBtn" aria-label="Previous slides">
+        <span class="nav-icon">‹</span>
+      </button>
+      <button class="carousel-nav next" id="nextBtn" aria-label="Next slides">
+        <span class="nav-icon">›</span>
+      </button>
     </div>
   </div>
 </section>
--->
 
-<section class="newsletter container section pixel-border">
-  <h2> Stay Cozy </h2>
-  <p>Get the latest posts, exclusive content, and creative resources delivered to your inbox!</p>
-  <form class="subscribe-form">
-    <input type="email" placeholder="Your email address" required>
-    <button type="submit">Subscribe</button>
-  </form>
+<!--  
+        <section class="cozy-content-section">
+          <div class="cozy-section-header">
+            <h2 class="cozy-section-title">Featured Game Blogs</h2>
+          
+          </div>
+          <div class="grid">
+            {% for post in collections.gameBlogs | slice(0,3) %}
+              {% set url = post.url %}
+              {% set title = post.data.title %}
+              {% set excerpt = post.data.excerpt %}
+              {% set date = post.data.date %}
+              {% set headerImage = post.data.headerImage %}
+              {% include "post-card.njk" %}
+            {% endfor %}
+          </div>
+          <div class="cozy-button-wrapper">
+            <a href="/game-blogs/" class="cozy-btn cozy-btn-caramel">View all game blogs</a>
+          </div>
+        </section>
+
+        
+        <section class="cozy-content-section">
+          <div class="cozy-section-header">
+            <h2 class="cozy-section-title">Featured Crafts & Arts</h2>
+            
+          </div>
+          <div class="grid">
+            {% for post in collections.craftsArts | slice(0,3) %}
+              {% set url = post.url %}
+              {% set title = post.data.title %}
+              {% set excerpt = post.data.excerpt %}
+              {% set date = post.data.date %}
+              {% set headerImage = post.data.headerImage %}
+              {% include "post-card.njk" %}
+            {% endfor %}
+          </div>
+          <div class="cozy-button-wrapper">
+            <a href="/crafts-arts/" class="cozy-btn cozy-btn-honey">View all crafts & arts</a>
+          </div>
+        </section>
+
+       
+        <section class="cozy-content-section">
+          <div class="cozy-section-header">
+            <h2 class="cozy-section-title">Featured Books & Stories</h2>
+
+          </div>
+          <div class="grid">
+            {% for post in collections.tales | slice(0,3) %}
+              {% set url = post.url %}
+              {% set title = post.data.title %}
+              {% set excerpt = post.data.excerpt %}
+              {% set date = post.data.date %}
+              {% set headerImage = post.data.headerImage %}
+              {% include "post-card.njk" %}
+            {% endfor %}
+          </div>
+          <div class="cozy-button-wrapper">
+            <a href="/tales/" class="cozy-btn cozy-btn-cocoa">Read all</a>
+          </div>
+        </section>
+-->
+<!-- Newsletter Section -->
+<section class="sidebar-newsletter">
+  <div class="sidebar-newsletter-content">
+    <h2 class="sidebar-newsletter-title">🧸 Stay Cozy! 🧸</h2>
+    <p class="sidebar-newsletter-text">Get the latest posts, exclusive content, and creative resources delivered to your inbox!</p>
+        <form
+        class="sidebar-newsletter-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSeG6Ax88MT8R91J_Ga0-qrs8j-ZG2lT5xEDM1u8vxEEuUceHA/formResponse"
+        method="POST"
+        target="_blank"
+      >
+        <input
+          type="email"
+          name="entry.1345713534"
+          placeholder="Your email address..."
+          required
+          class="sidebar-newsletter-input"
+        />
+        <button type="submit" class="sidebar-newsletter-btn cozy-btn cozy-btn-cocoa">
+          Join The Cozy Tales!
+        </button>
+      </form>
+
+  </div>
 </section>
+</div>
+<!-- JavaScript -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector("#carouselTrack");
+  const slides = Array.from(track.children);
+  const prevBtn = document.querySelector("#prevBtn");
+  const nextBtn = document.querySelector("#nextBtn");
+
+  const AUTO_PLAY_INTERVAL = 3000; 
+  let autoPlayTimer = null;
+  let isTransitioning = false;
+
+  let currentSlide = 0;
+  let slideWidth = slides[0].offsetWidth;
+  const gap = 16;
+  let maxSlide = slides.length - 1;
+
+  function updateSlideWidth() {
+    slideWidth = slides[0].offsetWidth + gap;
+    maxSlide = slides.length - 1;
+  }
+
+  function updateCarousel() {
+    const offset = -(slideWidth * currentSlide);
+    track.style.transform = `translateX(${offset}px)`;
+    track.style.transition = "transform 0.5s ease-in-out";
+  }
+
+  function nextSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentSlide = (currentSlide + 1) % (maxSlide + 1);
+    updateCarousel();
+    setTimeout(() => (isTransitioning = false), 600);
+  }
+
+  function prevSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentSlide = (currentSlide - 1 + (maxSlide + 1)) % (maxSlide + 1);
+    updateCarousel();
+    setTimeout(() => (isTransitioning = false), 600);
+  }
+
+  // Autoplay functions
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayTimer = setInterval(() => {
+      nextSlide();
+    }, AUTO_PLAY_INTERVAL);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayTimer) {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = null;
+    }
+  }
+
+  function resetAutoPlay() {
+    stopAutoPlay();
+    startAutoPlay();
+  }
+
+  // Event listeners for user interactions to reset or stop autoplay
+  [nextBtn, prevBtn, track].forEach(el => {
+    if (!el) return;
+    el.addEventListener("click", resetAutoPlay);
+    el.addEventListener("touchstart", resetAutoPlay);
+    el.addEventListener("mouseenter", stopAutoPlay);
+    el.addEventListener("mouseleave", startAutoPlay);
+  });
+
+  // Fix: attach correct handlers
+  nextBtn?.addEventListener("click", nextSlide);
+  prevBtn?.addEventListener("click", prevSlide);
+
+  // Swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  track.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const deltaX = touchStartX - touchEndX;
+    if (Math.abs(deltaX) > 50) {
+      deltaX > 0 ? nextSlide() : prevSlide();
+    }
+  });
+
+  // Resize support
+  window.addEventListener("resize", () => {
+    updateSlideWidth();
+    updateCarousel();
+  });
+
+  const resizeObserver = new ResizeObserver(() => {
+    updateSlideWidth();
+    updateCarousel();
+  });
+  resizeObserver.observe(track);
+
+  // Initial setup
+  updateSlideWidth();
+  updateCarousel();
+  startAutoPlay();
+});
+
+</script>

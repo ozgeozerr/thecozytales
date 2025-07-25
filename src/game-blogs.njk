@@ -6,14 +6,14 @@ pagination:
   data: collections.gameBlogs
   size: 10
   alias: posts
-class: "category-page container" 
+class: "category-page"
 ---
-<section class="site-header container section">
-  <h1 class="site-title">Game Blogs</h1>
+<section class="site-header">
+  <h1 class="site-title"> Game Blogs</h1>
   <p class="site-tagline">Indie game reviews, pixel art games, and cozy gaming adventures!</p>
 </section>
 
-<section class="container section">
+<section class="section">
   <ul class="post-list">
     {% for postItem in posts %}
       {% set url = postItem.url %}
@@ -24,8 +24,9 @@ class: "category-page container"
       {% include "post-card.njk" %}
     {% else %}
       <li class="no-posts-message">
-        <div class="pixel-border" style="padding: 2rem; text-align: center; background: var(--light-bg);">
-          <p>We're working on some cozy game reviews! Check back soon for indie game gems and pixel art showcases.</p>
+        <div class="pixel-border">
+          <h3>Level Up Coming Soon!</h3>
+          <p>We're working on some cozy game reviews! Check back soon! </p>
         </div>
       </li>
     {% endfor %}

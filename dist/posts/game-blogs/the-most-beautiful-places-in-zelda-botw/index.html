@@ -14,14 +14,15 @@
   <meta property="og:type" content="website">
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "29ca192c582b4a389608a7d046dd9104"}'></script>
-  
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+
 </head>
 <body>
   <header>
     <nav class="pixel-nav">
   <!-- Logo/Brand (optional) -->
   <div class="nav-brand">
-    <a href="/" style="font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: var(--accent); text-decoration: none;">Cozy Tales</a>
+    <a> The Cozy Tales</a>
   </div>
   
   <!-- Navigation Links -->
@@ -62,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
   </header>
-
   <main class="">
     
   <div class="blog-content-area">
@@ -109,20 +109,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
         </div>
         
-      
-      </article>
-
       <!-- Newsletter Signup -->
       <div class="sidebar-section">
         <div class="sidebar-newsletter">
           <h3>🧸 Stay Cozy!</h3>
           <p>Get weekly doses of pixel art, game reviews & crafty inspiration!</p>
-          <form>
-            <input type="email" placeholder="Your email..." required>
-            <button type="submit">Join the Den!</button>
-          </form>
+              <form
+                class="sidebar-newsletter-form"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSeG6Ax88MT8R91J_Ga0-qrs8j-ZG2lT5xEDM1u8vxEEuUceHA/formResponse"
+                method="POST"
+                target="_blank"
+              >
+                <input
+                  type="email"
+                  name="entry.1345713534"
+                  placeholder="Your email..."
+                  required
+                  class="sidebar-newsletter-input"
+                />
+                <button type="submit" class="sidebar-newsletter-btn">
+                  Subscribe!
+                </button>
+              </form>
+
         </div>
       </div>
+      </article>
+
+      
     </div>
     
     <!-- Sidebar -->
@@ -133,20 +147,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
           
             <div class="recommended-post">
-              <a href="/posts/tales/asjd/">
-                
-                <h4>asjd</h4>
-                <p>asdasd</p>
-              </a>
-            </div>
-          
-        
-          
-            <div class="recommended-post">
               <a href="/posts/crafts-arts/dialksjd/">
                 
                 <h4>dialksjd</h4>
-                <p>as</p>
+                <p></p>
               </a>
             </div>
           
@@ -156,9 +160,11 @@ document.addEventListener('DOMContentLoaded', function() {
               <a href="/posts/book-blogs/boook1/">
                 
                 <h4>boook1</h4>
-                <p>aslkd</p>
+                <p></p>
               </a>
             </div>
+          
+        
           
         
       </div>
@@ -169,20 +175,20 @@ document.addEventListener('DOMContentLoaded', function() {
           <p>Your Ad Here<br>300x600 Skyscraper<br>Perfect for Display Ads!</p>
         </div>
       </div>
-      
-    
-      
-    
-
-      
+  
     
     </aside>
   </div>
 
   </main>
+<footer>
+  <p>© 2025 The Cozy Tales — All rights reserved.</p>
+  <nav class="footer-nav">
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy-policy/">Privacy Policy</a>
+  </nav>
+</footer>
 
-  <footer>
-    <p>© 2025 The Cozy Tales — All rights reserved.</p>
-  </footer>
 </body>
 </html>

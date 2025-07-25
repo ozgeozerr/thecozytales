@@ -14,7 +14,12 @@ module.exports = function (eleventyConfig) {
           item.data.layout === "post.njk"
       )
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // sort by date desc
-      .slice(0, 5); // latest 5
+      .slice(0, 20);
+  });
+
+  eleventyConfig.addFilter("slice", function (array, start, end) {
+    if (!Array.isArray(array)) return [];
+    return array.slice(start, end);
   });
 
   // Date filter with default and fallback formatting
@@ -91,8 +96,8 @@ module.exports = function (eleventyConfig) {
     return null;
   });
 
-  // String slice filter for excerpts
   eleventyConfig.addFilter("slice", function (array, start, end) {
+    if (!Array.isArray(array)) return [];
     return array.slice(start, end);
   });
 
