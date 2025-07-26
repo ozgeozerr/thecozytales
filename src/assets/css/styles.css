@@ -91,7 +91,7 @@ img {
 
 /* ======================================== 4. TYPOGRAPHY ======================================== */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--heading-font);
+    font-family: var(--body-font);
     color: var(--accent);
     margin: 0 0 1rem 0;
     line-height: var(--leading-tight);
@@ -695,7 +695,7 @@ header {
 }
 
 .post-card-content h2 {
-    font-family: var(--heading-font);
+    font-family: var(--body-font);
     font-weight: 500;
     font-size: 1.5rem;
     color: var(--accent);
@@ -968,7 +968,7 @@ header {
     display: flex;
     gap: 2rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1500px;
     align-items: flex-start;
     justify-content: center;
 }
@@ -1019,13 +1019,13 @@ header {
 }
 
 .blog-post h1 {
-    font-family: var(--heading-font);
+    font-family: var(--body-font);
     font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
     margin-bottom: 2rem;
     color: var(--cocoa);
     line-height: var(--leading-tight);
     text-align: center;
-    font-weight: 700;
+    font-weight: 900;
     text-shadow: 2px 2px 4px rgba(139, 90, 58, 0.3);
     letter-spacing: -0.02em;
 }
@@ -1109,7 +1109,7 @@ header {
 }
 
 .post-content h2 {
-    font-family: var(--heading-font);
+    font-family: var(--body-font);
     font-weight: 600;
     font-size: var(--text-2xl);
     margin-top: 3rem;
@@ -1134,8 +1134,8 @@ header {
 }
 
 .post-content h3 {
-    font-family: var(--heading-font);
-    font-weight: 600;
+    font-family: var(--body-font);
+    font-weight: bold;
     font-size: var(--text-xl);
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -1378,7 +1378,7 @@ header {
 }
 
 .recommended-post h4 {
-    font-family: var(--heading-font);
+    font-family: var(--body-font);
     font-weight: 500;
     font-size: var(--text-base);
     color: var(--accent);
@@ -1501,7 +1501,7 @@ header {
 }
 
 .latest-posts h2 {
-    font-family: var(--heading-font);
+    font-family: var(--body-font);
     font-size: clamp(var(--text-2xl), 2.5vw, var(--text-3xl));
     color: var(--accent);
     margin-bottom: 1.1rem;
@@ -1634,7 +1634,7 @@ header {
 }
 
 .card-title {
-    font-family: var(--heading-font);
+    font-family: var(--body-font);
     font-weight: 600;
     font-size: var(--text-xl);
     color: #f3c6e3;
@@ -2330,6 +2330,8 @@ a:focus, button:focus, input:focus {
     }
     
     .post-card-content h2 {
+        font-family: (var(--body-font));
+        font-weight: 800;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
