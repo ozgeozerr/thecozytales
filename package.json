@@ -13,7 +13,8 @@
   "description": "",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"
+  },
+  "dependencies": {
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0"
   }
 }
-
-

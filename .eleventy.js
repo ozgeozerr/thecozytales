@@ -1,8 +1,14 @@
+const pluginSitemap = require("@quasibit/eleventy-plugin-sitemap");
 module.exports = function (eleventyConfig) {
   // Copy assets and admin files
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy("src/_redirects");
   eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPlugin(pluginSitemap, {
+    sitemap: {
+      hostname: "https://thecozytales.com",
+    },
+  });
 
   // Latest added posts collection
   eleventyConfig.addCollection("latestAddedPosts", (collectionApi) => {
