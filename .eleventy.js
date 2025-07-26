@@ -1,16 +1,20 @@
 const pluginSitemap = require("@quasibit/eleventy-plugin-sitemap");
+
 module.exports = function (eleventyConfig) {
-  // Copy assets and admin files
+  // ✅ Copy static assets and admin files
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy("src/_redirects");
   eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy("src/robots.txt"); // robots.txt support
+
+  // ✅ Sitemap plugin configuration
   eleventyConfig.addPlugin(pluginSitemap, {
     sitemap: {
       hostname: "https://thecozytales.com",
     },
   });
 
-  // Latest added posts collection
+  // ✅ Collection: Latest 20 added blog posts
   eleventyConfig.addCollection("latestAddedPosts", (collectionApi) => {
     return collectionApi
       .getAll()
@@ -19,22 +23,22 @@ module.exports = function (eleventyConfig) {
           item.inputPath.startsWith("./src/posts/") &&
           item.data.layout === "post.njk"
       )
-      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // sort by date desc
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
       .slice(0, 20);
   });
 
+  // ✅ Filter: Slice
   eleventyConfig.addFilter("slice", function (array, start, end) {
     if (!Array.isArray(array)) return [];
     return array.slice(start, end);
   });
 
-  // Date filter with default and fallback formatting
+  // ✅ Filter: Date formatting
   eleventyConfig.addFilter("date", (dateObj, format = "yyyy-MM-dd") => {
-    if (!dateObj) return ""; // No date provided
+    if (!dateObj) return "";
     const date = new Date(dateObj);
-    if (isNaN(date.getTime())) return ""; // Invalid date
+    if (isNaN(date.getTime())) return "";
 
-    // Handle different date formats
     if (format === "yyyy-MM-dd") {
       const yyyy = date.getFullYear();
       const mm = String(date.getMonth() + 1).padStart(2, "0");
@@ -57,11 +61,10 @@ module.exports = function (eleventyConfig) {
       }).format(date);
     }
 
-    // Fallback to localized US format
     return new Intl.DateTimeFormat("en-US").format(date);
   });
 
-  // Collections filtered by tags
+  // ✅ Collections by tag and folder structure
   eleventyConfig.addCollection("gameBlogs", function (collectionApi) {
     return collectionApi
       .getFilteredByTag("gameBlogs")
@@ -80,7 +83,7 @@ module.exports = function (eleventyConfig) {
     collectionApi.getFilteredByTag("bookBlogs")
   );
 
-  // URL helper filters
+  // ✅ Filters: For breadcrumb/category UI
   eleventyConfig.addFilter("getParentName", function (url) {
     const parts = url.split("/").filter((part) => part);
     return parts.length > 1 ? parts[0].replace(/-/g, " ") : "Home";
@@ -102,11 +105,7 @@ module.exports = function (eleventyConfig) {
     return null;
   });
 
-  eleventyConfig.addFilter("slice", function (array, start, end) {
-    if (!Array.isArray(array)) return [];
-    return array.slice(start, end);
-  });
-
+  // ✅ Eleventy config return
   return {
     dir: {
       input: "src",

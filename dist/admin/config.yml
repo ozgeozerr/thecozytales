@@ -69,3 +69,4 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", default: ["latestNews"] }
 
+
