@@ -1,74 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    
-        <url>
-            <loc>/admin/</loc>
-            <lastmod>2025-07-13T20:32:44.537Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/book-blogs/</loc>
-            <lastmod>2025-07-13T20:32:44.539Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/crafts-arts/</loc>
-            <lastmod>2025-07-13T20:32:44.539Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/game-blogs/</loc>
-            <lastmod>2025-07-13T20:32:44.539Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/</loc>
-            <lastmod>2025-07-13T20:32:44.540Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/latest-news/</loc>
-            <lastmod>2025-07-13T20:32:44.540Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/subscribe/</loc>
-            <lastmod>2025-07-13T20:32:44.541Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/posts/book-blogs/boook1/</loc>
-            <lastmod>2025-07-18T15:57:04.388Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/posts/crafts-arts/dialksjd/</loc>
-            <lastmod>2025-07-18T15:57:21.423Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/about/</loc>
-            <lastmod>2025-07-24T19:03:35.900Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/contact/</loc>
-            <lastmod>2025-07-24T19:05:19.616Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/privacy-policy/</loc>
-            <lastmod>2025-07-24T19:05:49.170Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/posts/game-blogs/the-most-beautiful-places-in-zelda-botw/</loc>
-            <lastmod>2025-07-25T18:47:49.762Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/posts/latest-news/heyy-welcome-to-the-cozy-tales/</loc>
-            <lastmod>2025-07-26T09:44:57.708Z</lastmod>
-        </url>
-    
+      <url>
+        <loc>https://thecozytales.com/admin/</loc>
+        <lastmod>2025-07-13T20:32:44.537Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/book-blogs/</loc>
+        <lastmod>2025-07-13T20:32:44.539Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/crafts-arts/</loc>
+        <lastmod>2025-07-13T20:32:44.539Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/game-blogs/</loc>
+        <lastmod>2025-07-13T20:32:44.539Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/</loc>
+        <lastmod>2025-07-13T20:32:44.540Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/latest-news/</loc>
+        <lastmod>2025-07-13T20:32:44.540Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/subscribe/</loc>
+        <lastmod>2025-07-13T20:32:44.541Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/posts/book-blogs/boook1/</loc>
+        <lastmod>2025-07-18T15:57:04.388Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/posts/crafts-arts/dialksjd/</loc>
+        <lastmod>2025-07-18T15:57:21.423Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/about/</loc>
+        <lastmod>2025-07-24T19:03:35.900Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/contact/</loc>
+        <lastmod>2025-07-24T19:05:19.616Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/privacy-policy/</loc>
+        <lastmod>2025-07-24T19:05:49.170Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/posts/game-blogs/the-most-beautiful-places-in-zelda-botw/</loc>
+        <lastmod>2025-07-25T18:47:49.762Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/posts/latest-news/heyy-welcome-to-the-cozy-tales/</loc>
+        <lastmod>2025-07-26T09:44:57.708Z</lastmod>
+      </url>
 </urlset>
