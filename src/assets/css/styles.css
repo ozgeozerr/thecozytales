@@ -87,6 +87,7 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    align-self: center;
 }
 
 /* ======================================== 4. TYPOGRAPHY ======================================== */
@@ -682,6 +683,7 @@ header {
     object-fit: cover;
     display: block;
     transition: transform var(--transition);
+    align-self: center;
 }
 
 .post-card:hover img {
@@ -1159,6 +1161,7 @@ header {
     border: 2px solid var(--caramel);
     box-shadow: inset 1px 1px 0px rgba(244, 212, 147, 0.3), 2px 2px 0px rgba(139, 90, 58, 0.2);
     margin: 1.5rem 0;
+    align-self: center;
 }
 
 .post-content a {
