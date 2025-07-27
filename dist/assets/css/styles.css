@@ -87,6 +87,7 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    align-self: center;
 }
 
 /* ======================================== 4. TYPOGRAPHY ======================================== */
@@ -657,7 +658,14 @@ header {
     box-shadow: inset 2px 2px 0px rgba(246, 193, 193, 0.2), inset -2px -2px 0px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(139, 90, 58, 0.2);
     transition: all var(--transition);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; /* or whatever you want */
+    height: 100%; 
+    box-sizing: border-box;
 }
+
 
 .post-card::before {
     content: '';
@@ -682,6 +690,9 @@ header {
     object-fit: cover;
     display: block;
     transition: transform var(--transition);
+    align-self: center;
+    width: 100%;
+ 
 }
 
 .post-card:hover img {
@@ -689,10 +700,14 @@ header {
 }
 
 .post-card-content {
-    padding: 2rem;
+    padding: 1rem;
     position: relative;
     z-index: 1;
-}
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
 
 .post-card-content h2 {
     font-family: var(--body-font);
@@ -733,6 +748,7 @@ header {
     color: inherit;
     display: block;
     height: 100%;
+    font-size: 1.3rem;
 }
 
 /* ======================================== 11. CONTENT SECTIONS ======================================== */
@@ -1155,11 +1171,15 @@ header {
 }
 
 .post-content img {
-    border-radius: 6px;
-    border: 2px solid var(--caramel);
-    box-shadow: inset 1px 1px 0px rgba(244, 212, 147, 0.3), 2px 2px 0px rgba(139, 90, 58, 0.2);
-    margin: 1.5rem 0;
+  display: block;
+  width: 100%; /* Fill parent container */
+  height: auto; /* Maintain aspect ratio */
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  border: 2px solid var(--caramel);
+  box-shadow: inset 1px 1px 0px rgba(244, 212, 147, 0.3), 2px 2px 0px rgba(139, 90, 58, 0.2);
 }
+
 
 .post-content a {
     color: var(--caramel-dark);
