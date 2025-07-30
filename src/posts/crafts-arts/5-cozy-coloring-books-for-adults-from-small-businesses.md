@@ -3,8 +3,7 @@ layout: post.njk
 title: 5 Cozy Coloring Books for Adults from Small Businesses
 date: 2025-07-29T12:43:46.744Z
 headerImage: https://i.etsystatic.com/16555551/r/il/827e99/5549117738/il_1588xN.5549117738_61hz.jpg
-excerpt: "Support small creators and have fun with coloring the best scenes!
-  These cozy adult coloring books are great as a summer activity. "
+excerpt: "Support small creators and have fun with coloring the best scenes! "
 tags:
   - craftsArts
 ---
