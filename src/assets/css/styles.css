@@ -1,8 +1,9 @@
 /* ======================================== 1. IMPORTS & FONTS ======================================== */
-@import url('https://fonts.googleapis.com/css2?family=Delius&family=Kaushan+Script&family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Kaushan+Script&family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=DynaPuff&display=swap');
+
 :root {
     /* Base Colors */
-    --bg: #db9ea3;
+    --bg: #db9eb8;
     --fg: #f1dee8;
     --accent: #f3c6e3;
     --primary: #a9d18e;
@@ -11,7 +12,7 @@
     --scroll-bg: #264d3c;
     --hover-bg: #3a6f51;
     --link-hover: #f7ddf7;
-    --blog-bg: #f9dbdb;
+    --blog-bg: #f7e5ec;
     
     /* Caramel Bear Color Palette */
     --cream: #FFF9F0;
@@ -710,7 +711,7 @@ header {
     }
 
 .post-card-content h2 {
-    font-family: var(--body-font);
+    font-family:'DynaPuff' ;
     font-weight: 500;
     font-size: 1.5rem;
     color: var(--accent);
@@ -1035,7 +1036,7 @@ header {
 }
 
 .blog-post h1 {
-    font-family: var(--body-font);
+    font-family: 'DynaPuff';
     font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
     margin-bottom: 2rem;
     color: var(--cocoa);
@@ -1121,11 +1122,12 @@ header {
 .post-content h2,
 .post-content h3,
 .post-content h4 {
+    
     text-align: center;
 }
 
 .post-content h2 {
-    font-family: var(--body-font);
+    font-family: 'DynaPuff';
     font-weight: 600;
     font-size: var(--text-2xl);
     margin-top: 3rem;
@@ -1150,10 +1152,10 @@ header {
 }
 
 .post-content h3 {
-    font-family: var(--body-font);
+    font-family: 'DynaPuff';
     font-weight: bold;
     font-size: var(--text-xl);
-    margin-top: 2.5rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
     color: #6B4226;
     line-height: var(--leading-tight);
@@ -1164,7 +1166,7 @@ header {
 .post-content h4 {
     font-family: var(--accent-font);
     font-size: var(--text-lg);
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
     color: var(--cocoa);
     font-weight: 600;
