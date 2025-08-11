@@ -4,115 +4,95 @@ title: The Cozy Tales
 class: "cozy-index-wrapper"
 ---
 
-<!-- Caramel Bear Themed Header -->
-<section class="cozy-site-header">
-  <div class="cozy-header-content">
-    <h1 class="cozy-site-title">🧸 The Cozy Tales</h1>
-    <p class="cozy-site-tagline">Your cozy corner for games, books, crafts and all indie things! </p>
-  </div>
-</section>
-
 <!-- Main Content Area -->
 <div class="cozy-main-content">
 
-<!-- COZY CAROUSEL SECTION -->
-<section class="cozy-content-section">
- 
-  <div class="cozy-carousel-wrapper">
-    <div class="carousel-decoration"></div>
-    <div class="cozy-section-header">
-        <h2 class="cozy-section-title">Latest Posts</h2>
+<div class="cozy-carousel-wrapper">
+  <div class="carousel-decoration"></div>
+
+  <div class="carousel-content-wrapper">
+    <!-- Sticky Welcome Card -->
+    <div class="welcome-card">
+      <h2>Welcome to Cozy Tales!</h2>
+      <p>
+      Your cozy corner for indie games, crafts and diy, and books! </p>
+       <!-- Buy Me a Coffee Section -->
+      <div class="sidebar-section buy-coffee">
+        <a href="https://buymeacoffee.com/thecozytales" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/buymeacoffee.png" alt="Buy Me a Coffee" style="max-width: 100%; border-radius: 12px;" />
+        </a>
       </div>
+      <a href="/all-posts/" class="welcome-btn">See All Posts</a>
+      
+    </div>
+
+    <!-- Carousel Container -->
     <div class="carousel-container">
       <div class="carousel-track" id="carouselTrack">
         {% for post in collections.latestAddedPosts %}
-          {% set url = post.url %}
-          {% set title = post.data.title %}
-          {% set excerpt = post.data.excerpt %}
-          {% set date = post.data.date %}
-          {% set headerImage = post.data.headerImage %}
           <div class="carousel-slide">
+            {% set url = post.url %}
+            {% set title = post.data.title %}
+            {% set excerpt = post.data.excerpt %}
+            {% set headerImage = post.data.headerImage %}
+            {% set date = post.data.date %}
             {% include "post-card.njk" %}
           </div>
         {% endfor %}
       </div>
     </div>
-
-    <!-- Navigation Buttons -->
-    <div class="carousel-navigation">
-      <button class="carousel-nav prev" id="prevBtn" aria-label="Previous slides">
-        <span class="nav-icon">‹</span>
-      </button>
-      <button class="carousel-nav next" id="nextBtn" aria-label="Next slides">
-        <span class="nav-icon">›</span>
-      </button>
-    </div>
   </div>
+</div>
+
+
+<section class="featured-section">
+  <h2>Featured Game Blogs</h2>
+  <div class="grid">
+    {% for post in collections.gameBlogs | slice(0,3) %}
+      {% set url = post.url %}
+      {% set title = post.data.title %}
+      {% set excerpt = post.data.excerpt %}
+      {% set date = post.data.date %}
+      {% set headerImage = post.data.headerImage %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+  </div>
+  <a href="/game-blogs/" class="btn-link">View all game blogs</a>
 </section>
 
-<!--  
-        <section class="cozy-content-section">
-          <div class="cozy-section-header">
-            <h2 class="cozy-section-title">Featured Game Blogs</h2>
-          
-          </div>
-          <div class="grid">
-            {% for post in collections.gameBlogs | slice(0,3) %}
-              {% set url = post.url %}
-              {% set title = post.data.title %}
-              {% set excerpt = post.data.excerpt %}
-              {% set date = post.data.date %}
-              {% set headerImage = post.data.headerImage %}
-              {% include "post-card.njk" %}
-            {% endfor %}
-          </div>
-          <div class="cozy-button-wrapper">
-            <a href="/game-blogs/" class="cozy-btn cozy-btn-caramel">View all game blogs</a>
-          </div>
-        </section>
+<section class="featured-section">
+  <h2>Featured Crafts & DIY</h2>
+  <div class="grid">
+    {% for post in collections.craftsArts | slice(0,3) %}
+      {% set url = post.url %}
+      {% set title = post.data.title %}
+      {% set excerpt = post.data.excerpt %}
+      {% set date = post.data.date %}
+      {% set headerImage = post.data.headerImage %}
+      
+        {% include "post-card.njk" %}
+      
+    {% endfor %}
+  </div>
+  <a href="/crafts-arts/" class="btn-link">View all crafts & DIY</a>
+</section>
 
-        
-        <section class="cozy-content-section">
-          <div class="cozy-section-header">
-            <h2 class="cozy-section-title">Featured Crafts & Arts</h2>
-            
-          </div>
-          <div class="grid">
-            {% for post in collections.craftsArts | slice(0,3) %}
-              {% set url = post.url %}
-              {% set title = post.data.title %}
-              {% set excerpt = post.data.excerpt %}
-              {% set date = post.data.date %}
-              {% set headerImage = post.data.headerImage %}
-              {% include "post-card.njk" %}
-            {% endfor %}
-          </div>
-          <div class="cozy-button-wrapper">
-            <a href="/crafts-arts/" class="cozy-btn cozy-btn-honey">View all crafts & arts</a>
-          </div>
-        </section>
+<section class="featured-section">
+  <h2>Top Book Stories</h2>
+  <div class="grid">
+    {% for post in collections.bookBlogs | slice(0,3) %}
+      {% set url = post.url %}
+      {% set title = post.data.title %}
+      {% set excerpt = post.data.excerpt %}
+      {% set date = post.data.date %}
+      {% set headerImage = post.data.headerImage %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+  </div>
+  <a href="/book-blogs/" class="btn-link">Explore all books & stories</a>
+</section>
 
-       
-        <section class="cozy-content-section">
-          <div class="cozy-section-header">
-            <h2 class="cozy-section-title">Featured Books & Stories</h2>
 
-          </div>
-          <div class="grid">
-            {% for post in collections.tales | slice(0,3) %}
-              {% set url = post.url %}
-              {% set title = post.data.title %}
-              {% set excerpt = post.data.excerpt %}
-              {% set date = post.data.date %}
-              {% set headerImage = post.data.headerImage %}
-              {% include "post-card.njk" %}
-            {% endfor %}
-          </div>
-          <div class="cozy-button-wrapper">
-            <a href="/tales/" class="cozy-btn cozy-btn-cocoa">Read all</a>
-          </div>
-        </section>
--->
 <!-- Newsletter Section -->
 <section class="sidebar-newsletter">
   <div class="sidebar-newsletter-content">
@@ -139,30 +119,31 @@ class: "cozy-index-wrapper"
   </div>
 </section>
 </div>
-<!-- JavaScript -->
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector("#carouselTrack");
+  const container = document.querySelector(".carousel-container");
   const slides = Array.from(track.children);
-  const prevBtn = document.querySelector("#prevBtn");
-  const nextBtn = document.querySelector("#nextBtn");
 
   const AUTO_PLAY_INTERVAL = 3000; 
   let autoPlayTimer = null;
   let isTransitioning = false;
 
   let currentSlide = 0;
-  let slideWidth = slides[0].offsetWidth;
-  const gap = 16;
+  let slideWidth = 0;
   let maxSlide = slides.length - 1;
+  let visibleSlides = 1;
 
   function updateSlideWidth() {
-    slideWidth = slides[0].offsetWidth + gap;
+    slideWidth = slides[0].offsetWidth + 16; // 16 = gap
     maxSlide = slides.length - 1;
+    visibleSlides = Math.floor(container.offsetWidth / slideWidth);
   }
 
   function updateCarousel() {
+    const maxIndex = maxSlide - visibleSlides + 1;
+    if (currentSlide > maxIndex) currentSlide = 0; // safety check
     const offset = -(slideWidth * currentSlide);
     track.style.transform = `translateX(${offset}px)`;
     track.style.transition = "transform 0.5s ease-in-out";
@@ -171,17 +152,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function nextSlide() {
     if (isTransitioning) return;
     isTransitioning = true;
-    currentSlide = (currentSlide + 1) % (maxSlide + 1);
+    const maxIndex = maxSlide - visibleSlides + 1;
+    currentSlide = currentSlide + 1 > maxIndex ? 0 : currentSlide + 1;
     updateCarousel();
-    setTimeout(() => (isTransitioning = false), 600);
-  }
-
-  function prevSlide() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    currentSlide = (currentSlide - 1 + (maxSlide + 1)) % (maxSlide + 1);
-    updateCarousel();
-    setTimeout(() => (isTransitioning = false), 600);
+    setTimeout(() => (isTransitioning = false), 350);
   }
 
   // Autoplay functions
@@ -199,38 +173,43 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function resetAutoPlay() {
-    stopAutoPlay();
-    startAutoPlay();
-  }
-
-  // Event listeners for user interactions to reset or stop autoplay
-  [nextBtn, prevBtn, track].forEach(el => {
+  // Pause autoplay on hover over carousel-wrapper or track
+  [track, document.querySelector(".cozy-carousel-wrapper")].forEach(el => {
     if (!el) return;
-    el.addEventListener("click", resetAutoPlay);
-    el.addEventListener("touchstart", resetAutoPlay);
     el.addEventListener("mouseenter", stopAutoPlay);
     el.addEventListener("mouseleave", startAutoPlay);
   });
 
-  // Fix: attach correct handlers
-  nextBtn?.addEventListener("click", nextSlide);
-  prevBtn?.addEventListener("click", prevSlide);
-
   // Swipe support
   let touchStartX = 0;
   let touchEndX = 0;
+  let isSwiping = false;
 
   track.addEventListener("touchstart", (e) => {
     touchStartX = e.changedTouches[0].screenX;
+    isSwiping = true;
+  });
+
+  track.addEventListener("touchmove", (e) => {
+    if (!isSwiping) return;
+    e.preventDefault();
   });
 
   track.addEventListener("touchend", (e) => {
+    if (!isSwiping) return;
     touchEndX = e.changedTouches[0].screenX;
     const deltaX = touchStartX - touchEndX;
+    const maxIndex = maxSlide - visibleSlides + 1;
+
     if (Math.abs(deltaX) > 50) {
-      deltaX > 0 ? nextSlide() : prevSlide();
+      if (deltaX > 0) {
+        nextSlide();
+      } else {
+        currentSlide = (currentSlide - 1 + maxIndex + 1) % (maxIndex + 1);
+        updateCarousel();
+      }
     }
+    isSwiping = false;
   });
 
   // Resize support

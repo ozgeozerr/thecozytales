@@ -4,16 +4,16 @@
 
 :root {
     /* Base Colors */
-    --bg: #f9e4e4;
-    --fg: #e5c8d7;
+    --bg: #fbf1f1;
+    --fg: #f1dee8;
     --accent: #f3c6e3;
     --primary: #a9d18e;
     --border: #7cbf7c;
-    --light-bg: #054029;
+    --light-bg: #054030;
     --scroll-bg: #264d3c;
     --hover-bg: #3a6f51;
     --link-hover: #f7ddf7;
-    --blog-bg: #fffcf8 ;
+    --blog-bg: #fffdf8 ;
     
     /* Caramel Bear Color Palette */
     --cocoa-light: #a87c56;
@@ -36,9 +36,10 @@
     
     /* Font Variables - Updated with better hierarchy */
     --heading-font:  'Pacifico', sans-serif;
-    --body-font: 'Delius', 'Helvetica Neue', Arial, sans-serif; 
-    --accent-font: 'Sour Gummy', 'Trebuchet MS', sans-serif; 
-    
+    --body-font: 'Delius', 'Helvetica Neue', Arial, sans-serif; /* Clean, readable sans-serif */
+    --accent-font: 'Sour Gummy', 'Trebuchet MS', sans-serif; /* Friendly for special elements */
+    --mono-font: 'Delius', 'Consolas', monospace; /* Modern monospace */
+    --alt-font: 'Delius', 'Times New Roman', serif; /* Alternative serif */
     
     /* Typography Scale - Consistent sizing */
     --text-xs: 0.75rem;    /* 12px */
@@ -99,7 +100,7 @@ img {
 
 /* ======================================== 4. TYPOGRAPHY ======================================== */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--accent-font);
+    font-family: var(--body-font);
     color: var(--accent);
     margin: 0 0 1rem 0;
     line-height: var(--leading-tight);
@@ -258,7 +259,7 @@ header {
 
 .nav-brand a {
     font-family: var(--heading-font);
-    font-size: 1.2rem;
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--accent);
     text-decoration: none;
@@ -279,19 +280,16 @@ header {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--bg);
+    color: var(--primary);
     padding: 0.75rem 1.25rem;
     border: 2px solid transparent;
     border-radius: 10px;
     transition: all var(--transition);
-    font-size: 1rem;
-    font-weight: bolder;
+    font-size: 1.2rem;
+    font-weight: 900;
     position: relative;
-    line-height: 1.2;
-    cursor: pointer;
-    font-family:var(--accent-font);
+    font-family: 'Varela Round';
 }
-
 
 .nav-menu a:hover {
     border-color: var(--accent);
@@ -300,10 +298,7 @@ header {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(246, 193, 193, 0.3);
     text-decoration: none !important;
-
 }
-
-
 
 
 /* Hero Section */
@@ -590,25 +585,12 @@ header {
     flex-grow: 1;
 }
 
-.post-card-link {
-  display: block;
-  color: inherit; /* so text keeps your styling */
-  text-decoration: none;
-  height: 100%;
-}
-
-.post-card-link:hover {
-  /* optional: add some hover effect */
-  text-decoration: none;
-  cursor: pointer;
-}
-
 
 .post-card-content h2 {
-    font-family: var(--accent-font);
-    font-weight: 500;
+    font-family: 'Varela Round';
+    font-weight: 900;
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--accent);
     line-height: var(--leading-tight);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     letter-spacing: -0.01em;
@@ -621,14 +603,15 @@ header {
 
 .post-card-content p {
     font-size: 1rem;
-    font-weight: 800;
-    color: #fff;
+    font-weight: 600;
+    color: var(--fg);
     line-height: var(--leading-relaxed);
     opacity: 0.9;
     margin: 0;
     flex-grow: 1; 
     overflow: hidden;
 }
+
 
 .post-card-content time {
     font-family: var(--heading-font);
@@ -652,48 +635,99 @@ header {
     font-size: 1.3rem;
 }
 
-.welcome-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.75rem;
-  font-family: 'Varela Round', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #fff;
-  background-color: var(--caramel);
-  border-radius: 12px;
-  border: 3px solid var(--honey);
-  box-shadow: 
-    0 0 0 3px var(--caramel), /* outer border spacing */
-    0 6px 10px rgba(179, 125, 51, 0.4);
-  text-decoration: none;
-  text-align: center;
-  user-select: none;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  cursor: pointer;
+/* ======================================== 11. CONTENT SECTIONS ======================================== */
+.section {
+    margin: 2rem 0;
+    padding: 0.5rem 0;
 }
 
-.welcome-btn:hover,
-.welcome-btn:focus {
-  background-color: var(--honey);
-  color: #fff;
-  border-color: var(--accent);
-  box-shadow: 
-    0 0 0 3px var(--honey),
-    0 8px 16px rgba(179, 125, 51, 0.6);
-  transform: translateY(-3px);
-  outline: none;
+.section-title {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl));
+    font-weight: 700;
+    color: var(--accent);
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.05em;
 }
 
-.welcome-btn:active {
-  transform: translateY(0);
-  box-shadow: 
-    0 0 0 3px var(--honey),
-    0 4px 8px rgba(179, 125, 51, 0.3);
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: rgb(243, 220, 236);
+    border-radius: 2px;
 }
 
+.cozy-content-section {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.cozy-section-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.cozy-section-title {
+  font-family: var(--heading-font);
+  font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl));
+  color: #f3c6e3; /* Soft baby pink */
+  margin-top: 0.2rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+  line-height: var(--leading-tight);
+}
+
+
+
+.cozy-section-decoration {
+    width: 100px;
+    height: 2px;
+    background-color: var(--link-hover);
+    margin: 0 auto;
+    border-radius: 2px;
+    position: relative;
+    text-decoration: none;
+}
+
+.cozy-section-decoration::after {
+    content: '✨';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg);
+    padding: 0 8px;
+    font-size: var(--text-base);
+}
 
 /* ======================================== 12. NEWSLETTER & FORMS ======================================== */
+.newsletter {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--caramel-dark);
+    border-radius: 16px;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+}
+
+.newsletter h2 {
+    margin-bottom: 1rem;
+}
+
+.newsletter p {
+    font-size: var(--text-lg);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
 
 .subscribe-form {
     display: flex;
@@ -727,7 +761,7 @@ header {
     font-family: var(--body-font);
 }
 
-/* Newsletter Section */
+/* Enhanced Newsletter Section */
 .sidebar-newsletter {
     background: #bc835e;
     border: 4px solid var(--accent);
@@ -757,6 +791,9 @@ header {
     position: relative;
     z-index: 2;
 }
+
+
+
 
 .sidebar-newsletter-title {
     font-family: var(--heading-font);
@@ -838,7 +875,7 @@ header {
     max-width: 800px;
     padding: 3rem;
     border-radius: 12px;
-    color: #140707;
+    color: #2c2c2c;
     position: relative;
     overflow: hidden;
     border: 4px solid var(--caramel);
@@ -877,7 +914,7 @@ header {
 }
 
 .blog-post h1 {
-    font-family: 'Varela Round';
+    font-family: ' Varela Round';
     font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
     margin-bottom: 2rem;
     color: var(--cocoa);
@@ -890,7 +927,7 @@ header {
 
 /* ======================================== 14. POST CONTENT STYLING ======================================== */
 .post-meta {
-    text-align: left;
+    text-align: center;
     margin: 0 auto 1.5rem auto;
     max-width: fit-content;
     padding: 0.5rem 1rem;
@@ -898,11 +935,10 @@ header {
     border-radius: 20px;
     border: 2px solid var(--caramel);
     box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.4), 2px 2px 0px rgba(139, 90, 58, 0.2);
-    font-family: 'Varela Round';
 }
 
 .post-date {
-    font-family: 'Varela Round';
+    font-family: var(--accent-font);
     font-size: var(--text-sm);
     color: var(--cocoa);
     letter-spacing: 0.05em;
@@ -943,16 +979,13 @@ header {
 }
 
 .post-content {
-    font-family: 'Varela Round';
+    font-family: var(--body-font);
     font-size: var(--text-lg);
     line-height: var(--leading-relaxed);
     font-weight: 400;
     text-align: left;
     max-width: 100%;
     margin: 0 auto;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .post-content p {
@@ -972,7 +1005,7 @@ header {
 }
 
 .post-content h2 {
-    font-family: 'Varela Round';
+    font-family: ' Varela Round';
     font-weight: 600;
     font-size: var(--text-2xl);
     margin-top: 3rem;
@@ -996,43 +1029,20 @@ header {
     background: repeating-linear-gradient( 90deg, #6B4226 0px, #6B4226 8px, transparent 8px, transparent 12px, var(--honey) 12px, var(--honey) 20px, transparent 20px, transparent 24px );
 }
 
-.post-content h2:hover::after {
-  width: 100%;
-  transition: width 0.3s ease;
-}
-
-
 .post-content h3 {
-    font-family: 'Varela Round';
+    font-family: ' Varela Round';
     font-weight: bold;
     font-size: var(--text-xl);
     margin-top: 3rem;
     margin-bottom: 1rem;
+    color: #6B4226;
     line-height: var(--leading-tight);
     text-shadow: 1px 1px 2px rgba(107, 66, 38, 0.1);
     letter-spacing: -0.01em;
-    color: #7f5a30; /* warmer brown */
-    text-shadow: 1px 1px 3px rgba(127, 90, 48, 0.1);
-}
-.post-content blockquote:hover {
-  background: linear-gradient(135deg, rgba(210, 160, 102, 0.15) 0%, rgba(244, 212, 147, 0.15) 100%);
-  box-shadow: 0 0 10px rgba(210, 160, 102, 0.3);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-.post-content img:hover {
-  transform: scale(1.03);
-  transition: transform 0.3s ease;
-}
-.post-content figcaption {
-  font-size: 0.9rem;
-  color: var(--caramel-dark);
-  text-align: center;
-  margin-top: 0.3rem;
-  font-style: italic;
 }
 
 .post-content h4 {
-    font-family: 'Varela Round';
+    font-family: var(--accent-font);
     font-size: var(--text-lg);
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -1050,28 +1060,25 @@ header {
   box-shadow: inset 1px 1px 0px rgba(244, 212, 147, 0.3), 2px 2px 0px rgba(139, 90, 58, 0.2);
 }
 
+
 .post-content a {
-  position: relative;
+    color: var(--caramel-dark);
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    border-bottom: 2px solid var(--caramel);
+    transition: all 0.3s ease;
 }
 
-.post-content a::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background: var(--caramel);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: bottom right;
+.post-content a:hover {
+    background: var(--caramel);
+    color: var(--blog-bg);
+    padding: 3px 6px;
+    margin: 0 -6px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 0px rgba(139, 90, 58, 0.3);
+    text-decoration: none;
 }
-
-.post-content a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
 
 .post-content ul, .post-content ol {
     margin: 1.5rem 0;
@@ -1101,7 +1108,7 @@ header {
     border-radius: 0 8px 8px 0;
     position: relative;
     border: 1px solid rgba(210, 160, 102, 0.3);
-    font-family: 'Varela Round';
+    font-family: var(--alt-font);
 }
 
 .post-content blockquote::before {
@@ -1125,21 +1132,14 @@ header {
 }
 
 .post-content pre {
-   
+    background: linear-gradient(135deg, rgba(244, 212, 147, 0.1) 0%, rgba(210, 160, 102, 0.1) 100%);
     border: 2px solid var(--caramel-light);
     padding: 1.5rem;
     border-radius: 8px;
     overflow-x: auto;
     margin: 2rem 0;
     box-shadow: inset 1px 1px 3px rgba(139, 90, 58, 0.1);
-    background: linear-gradient(135deg, rgba(210, 160, 102, 0.15) 0%, rgba(139, 90, 58, 0.1) 100%);
-    border-color: var(--caramel-dark);
 }
-
-.post-content pre {
-  box-shadow: 0 4px 10px rgba(139, 90, 58, 0.15);
-}
-
 
 .post-content pre code {
     background: none;
@@ -1272,7 +1272,7 @@ header {
 
 .recommended-post img {
     width: 100%;
-    height: 60px;
+    height: 70px;
     object-fit: cover;
     border-radius: 4px;
     border: 2px solid var(--caramel-light);
@@ -1280,9 +1280,9 @@ header {
 }
 
 .recommended-post h4 {
-    font-family: 'Varela Round';
-    font-weight: 700;
-    font-size: 0.8rem;
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-size: var(--text-base);
     color: var(--accent);
     margin-bottom: 0.5rem;
     line-height: var(--leading-snug);
@@ -1306,6 +1306,39 @@ header {
     text-decoration: none;
 }
 
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--caramel);
+    color: var(--blog-bg);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--text-xl);
+    transition: all 0.3s ease;
+    border: 2px solid var(--caramel-dark);
+    box-shadow: inset 1px 1px 0px rgba(244, 212, 147, 0.5), 2px 2px 0px rgba(139, 90, 58, 0.3);
+}
+
+.social-link:hover {
+    background: var(--honey);
+    color: var(--cocoa);
+    transform: translateY(-2px);
+    box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5), 3px 3px 0px rgba(139, 90, 58, 0.4);
+    text-decoration: none;
+}
 
 /* ======================================== 16. SCROLL COMPONENTS ======================================== */
 .scroll-box {
@@ -1375,12 +1408,13 @@ header {
 .latest-posts h2 {
     font-family: var(--body-font);
     font-size: clamp(var(--text-2xl), 2.5vw, var(--text-3xl));
-    color: #fff;
+    color: var(--accent);
     margin-bottom: 1.1rem;
     margin-left: 0.5rem;
     line-height: var(--leading-tight);
 }
 
+/* Cozy Carousel Styles */
 
 .cozy-carousel-wrapper {
   position: relative;
@@ -1422,8 +1456,8 @@ header {
 
 
 .carousel-slide {
-  flex: 0 0 320px;
-  border-radius: 16px;
+  flex: 0 0 280px;
+  border-radius: 12px;
   background: var(--fg);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   overflow: hidden;
@@ -1432,7 +1466,7 @@ header {
 }
 
 .cozy-post-card {
-    background: var(--light-bg);
+    background: #054030;
     border-radius: 16px;
     border: 3px solid #D2A066;
     box-shadow: 0 6px 20px rgba(139, 90, 58, 0.2), inset 1px 1px 0px rgba(246, 193, 193, 0.1);
@@ -1509,60 +1543,18 @@ header {
 
 /* Sticky card on the left */
 .welcome-card {
-  flex: 0 0 300px;
-  background: var(--light-bg); 
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
+  flex: 0 0 280px;
+  background: var(--accent);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: inset 2px 2px 6px rgba(255 255 255 / 0.3);
+  font-size: 1.1rem;
   color: var(--fg);
   user-select: none;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: start;
-  line-height: 1.6;
-  letter-spacing: 0.04em;
-  position: relative;
-  transition: box-shadow 0.3s ease;
-  cursor: default;
-  border: 2px solid var(--honey);
-}
-
-.welcome-card h2 {
-  margin: 0;
-  font-weight: 600;
-  font-size: 2.3rem;
-  color: #ffffff; 
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-  line-height: 1.2;
-  letter-spacing: 0.08em;
-  font-family: var(--accent-font);
-  white-space: pre-line;
-}
-
-.welcome-card p {
-  margin: 0;
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #ffffff; 
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-  line-height: 1.5;
-  letter-spacing: 0.08em;
-  font-family: var(--body-font);
-  white-space: pre-line;
-  margin-bottom: 26px;
-}
-
-.welcome-card h2 span {
-  display: block;
-  font-weight: 500;
-  font-size: 1rem;
-  font-family: 'Varela Round', sans-serif;
-  letter-spacing: 0.04em;
-  text-transform: none;
-  margin-top: 0.8rem;
-  color: var(--fg);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  text-align: center;
 }
 
 .card-content {
@@ -1579,7 +1571,7 @@ header {
     font-family: var(--body-font);
     font-weight: 600;
     font-size: var(--text-xl);
-    color: #fff;
+    color: #f3c6e3;
     margin-bottom: 0.7rem;
     line-height: var(--leading-tight);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -1611,82 +1603,10 @@ header {
     transition: all 0.3s ease;
 }
 
-
-.featured-section {
-  margin: 3rem auto;
-  max-width: 1200px;
-  padding: 1.5rem 1rem;
-  background: #ffdade;
-  border-radius: 16px;
-  border: 3px solid var(--caramel);
-  align-items: center;
-  box-shadow:
-    inset 2px 2px 6px rgba(255 255 255 / 0.3),
-    inset -2px -2px 6px rgba(0 0 0 / 0.15),
-    0 6px 20px rgba(139, 90, 58, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.featured-section > h2 {
-  font-family: var(--accent-font);
-  font-weight: 900;
-  font-size: 2.3rem;
-  color: #fff;
-  text-align: center;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
-  letter-spacing: 0.03em;
-  margin-bottom: 1.5rem;
-}
-
-.featured-section .post-card {
-  margin-top: 1.5rem;
-  max-width: 100%; /* ensures cards fill grid column */
-  height: auto; /* let height grow with content */
-}
-
-
-.featured-section .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-
-.btn-link {
-  font-family: var(--accent-font);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #fff;
-  background: #c68260;
-  border: 2px solid var(--caramel);
-  border-radius: 12px;
-  padding: 0.5rem 1.5rem;
-  text-decoration: none;
-  box-shadow:
-    inset 1px 1px 0 rgba(255 255 255 / 0.7),
-    0 4px 10px rgba(246, 193, 193, 0.3);
-  transition: all 0.3s ease;
-  user-select: none;
-  align-items: center;
-}
-
-.btn-link:hover {
-  background: var(--caramel);
-  color: var(--fg);
-  border-color: var(--honey);
-  box-shadow:
-    inset 2px 2px 6px rgba(255 255 255 / 0.9),
-    0 8px 20px rgba(246, 193, 193, 0.5);
-  transform: translateY(-3px);
-}
-
-/* Align the button nicely */
-.featured-section > a.btn-link {
-  margin-top: 0.5rem;
-  display: inline-block;
+.cozy-post-card:hover .card-date {
+    background: rgba(210, 160, 102, 0.2);
+    border-color: rgba(210, 160, 102, 0.5);
+    text-decoration: none;
 }
 
 
@@ -1857,103 +1777,37 @@ header {
     text-align: center;
 }
 
-
-/* Category Page */
-.category-page {
-  background: var(--blog-bg, #fffcf8);
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto 4rem;
-  border-radius: 12px;
-  box-shadow:
-    0 4px 15px rgba(139, 90, 58, 0.1);
+/* ======================================== 18. CATEGORY & POST LIST PAGES ======================================== */
+.category-page .post-list {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
 }
 
-.category-header {
-  position: relative;
-  padding: 1.5rem 1.5rem 1.5rem; /* give more top and bottom space for lines */
-  border-radius: 16px;
-  background: var(--light-bg, #054029); /* dark green bg */
-  color: white;
-  text-align: center;
-  margin-bottom: 2rem;
-  overflow: visible;
-  border: 5px solid #a87c56; 
+.category-page .post-card {
+    min-height: 420px;
 }
 
-/* Title styling */
-.category-header .category-title {
-  position: relative;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-  z-index: 2;
-  color: #fff;
+.category-page .site-header {
+    margin-bottom: 2rem;
 }
 
-/* Tagline styling */
-.category-header .category-tagline {
-  position: relative;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #ddd;
-  z-index: 2;
-}
-
-/* Post List Grid */
-.category-posts .post-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
-  list-style-type:none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Post Card inside category */
-.category-posts .post-card {
-  background: var(--light-bg, #054029);
-  border: 2px solid var(--border, #7cbf7c);
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 2px 2px 0 var(--accent, #f3c6e3);
-  color: var(--link-hover, #f7ddf7);
-  transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
-}
-
-/* Post Card hover */
-.category-posts .post-card:hover {
-  background: var(--hover-bg, #3a6f51);
-  color: #fff;
-  transform: translateY(-3px);
-}
-
-/* Post Card text elements */
-.category-posts .post-card h2,
-.category-posts .post-card p,
-.category-posts .post-card time {
-  color: inherit;
-}
-
-/* No Posts Message */
 .no-posts-message {
-  grid-column: 1 / -1;
-  text-align: center;
+    list-style: none;
+    margin: 3rem 0;
 }
 
-.no-posts-message .pixel-border {
-  background: var(--bg, #f9e4e4);
-  padding: 2rem;
-  border: 3px solid var(--border, #7cbf7c);
-  border-radius: 10px;
-  box-shadow: 2px 2px 0 var(--accent, #f3c6e3);
-  color: var(--primary, #a9d18e);
-  font-family: 'Varela Round', sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
+.no-posts-message h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: var(--text-xl);
 }
 
-
+.no-posts-message p {
+    color: var(--fg);
+    opacity: 0.8;
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+}
 
 /* ======================================== 19. FOOTER ======================================== */
 footer {
@@ -2361,7 +2215,6 @@ a:focus, button:focus, input:focus {
     .post-card-content h2 {
         font-family: (var(--body-font));
         font-weight: 800;
-        color: #fff;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
@@ -2626,27 +2479,27 @@ a:focus, button:focus, input:focus {
 
 
 .cozy-page-wrapper {
-  text-align: center;
   position: relative;
-  margin: auto;
-  max-width: 600px;
+  margin: 3rem auto;
+  max-width: 1000px;
+  padding: 3rem 2rem;
   background: linear-gradient(135deg, #054030 0%, #264d3c 100%);
-  border-radius: 16px;
-  border: 2px solid #B8955C;
+  border-radius: 20px;
+  border: 3px solid #B8955C;
   box-shadow: 0 8px 25px rgba(139, 90, 58, 0.3);
-  color: #ffffff;
-  line-height: 1.3;
-  font-size: var(--accent-font);
-  overflow: hidden; 
+  color: var(--fg);
+  line-height: 1.8;
+  font-size: var(--text-base);
+  overflow: hidden; /* needed for decoration */
 }
 
 /* Decoration Bar — Repeating Gold Lines */
 .cozy-page-wrapper::before {
   content: '';
   position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
+  top: 8px;
+  left: 8px;
+  right: 8px;
   height: 4px;
   background: repeating-linear-gradient(
     90deg,
@@ -2665,11 +2518,11 @@ a:focus, button:focus, input:focus {
 
 .cozy-page-wrapper h2,
 .cozy-page-wrapper h3 {
-  color: #ffffff;
-  margin-top: 1rem;
-  font-weight: 500;
+  color: var(--primary);
+  margin-top: 2rem;
+  font-weight: 600;
 }
 
 .cozy-page-wrapper p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }

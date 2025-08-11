@@ -14,6 +14,18 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  // ✅ Collection: All posts (not limited to latest 20)
+  eleventyConfig.addCollection("allPosts", (collectionApi) => {
+    return collectionApi
+      .getAll()
+      .filter(
+        (item) =>
+          item.inputPath.startsWith("./src/posts/") &&
+          item.data.layout === "post.njk"
+      )
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+  });
+
   // ✅ Collection: Latest 20 added blog posts
   eleventyConfig.addCollection("latestAddedPosts", (collectionApi) => {
     return collectionApi
@@ -95,6 +107,8 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("getCategoryFromUrl", function (url) {
+    if (typeof url !== "string") return "Uncategorized";
+
     const parts = url.split("/").filter((part) => part);
     if (parts.length > 1) {
       return parts[0]
@@ -102,7 +116,7 @@ module.exports = function (eleventyConfig) {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ");
     }
-    return null;
+    return "Uncategorized";
   });
 
   // ✅ Eleventy config return

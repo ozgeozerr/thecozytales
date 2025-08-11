@@ -8,25 +8,26 @@ pagination:
   alias: posts
 class: "category-page"
 ---
-<section class="site-header">
-  <h1 class="site-title">Crafts and Arts</h1>
-  <p class="site-tagline">We looove to DIY and paint!</p>
+<section class="category-header pixel-border">
+  <h1 class="category-title">Crafts & Arts</h1>
+  <p class="category-tagline">We love to craft, right?</p>
 </section>
-
-<section class="section">
+<section class="category-posts">
   <ul class="post-list">
     {% for postItem in posts %}
-      {% set url = postItem.url %}
-      {% set title = postItem.data.title %}
-      {% set excerpt = postItem.data.excerpt %}
-      {% set date = postItem.data.date %}
-      {% set headerImage = postItem.data.headerImage %}
-      {% include "post-card.njk" %}
+      <li>
+        {% set url = postItem.url %}
+        {% set title = postItem.data.title %}
+        {% set excerpt = postItem.data.excerpt %}
+        {% set date = postItem.data.date %}
+        {% set headerImage = postItem.data.headerImage %}
+        {% include "post-card.njk" %}
+      </li>
     {% else %}
       <li class="no-posts-message">
         <div class="pixel-border">
-          <h3>Hey, you cannot rush art!</h3>
-          <p>Check back soon for creative tutorials and crafty inspiration!</p>
+          <h3>Level Up Coming Soon!</h3>
+          <p>We're working on some cozy game reviews! Check back soon!</p>
         </div>
       </li>
     {% endfor %}

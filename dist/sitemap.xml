@@ -1,48 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-        <loc>https://thecozytales.com/admin/</loc>
-        <lastmod>2025-07-13T20:32:44.537Z</lastmod>
-      </url>
-      <url>
-        <loc>https://thecozytales.com/book-blogs/</loc>
-        <lastmod>2025-07-13T20:32:44.539Z</lastmod>
-      </url>
-      <url>
-        <loc>https://thecozytales.com/crafts-arts/</loc>
-        <lastmod>2025-07-13T20:32:44.539Z</lastmod>
-      </url>
-      <url>
-        <loc>https://thecozytales.com/game-blogs/</loc>
-        <lastmod>2025-07-13T20:32:44.539Z</lastmod>
-      </url>
-      <url>
-        <loc>https://thecozytales.com/</loc>
-        <lastmod>2025-07-13T20:32:44.540Z</lastmod>
-      </url>
-      <url>
-        <loc>https://thecozytales.com/latest-news/</loc>
-        <lastmod>2025-07-13T20:32:44.540Z</lastmod>
-      </url>
-      <url>
-        <loc>https://thecozytales.com/subscribe/</loc>
-        <lastmod>2025-07-13T20:32:44.541Z</lastmod>
-      </url>
-      <url>
         <loc>https://thecozytales.com/posts/crafts-arts/dialksjd/</loc>
         <lastmod>2025-07-18T15:57:21.423Z</lastmod>
-      </url>
-      <url>
-        <loc>https://thecozytales.com/about/</loc>
-        <lastmod>2025-07-24T19:03:35.900Z</lastmod>
-      </url>
-      <url>
-        <loc>https://thecozytales.com/contact/</loc>
-        <lastmod>2025-07-24T19:05:19.616Z</lastmod>
-      </url>
-      <url>
-        <loc>https://thecozytales.com/privacy-policy/</loc>
-        <lastmod>2025-07-24T19:05:49.170Z</lastmod>
       </url>
       <url>
         <loc>https://thecozytales.com/posts/game-blogs/the-most-beautiful-places-in-zelda-botw/</loc>
@@ -63,5 +23,49 @@
       <url>
         <loc>https://thecozytales.com/posts/crafts-arts/5-cozy-coloring-books-for-adults-from-small-businesses/</loc>
         <lastmod>2025-07-29T12:43:46.744Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/about/</loc>
+        <lastmod>2025-08-10T06:22:30.984Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/admin/</loc>
+        <lastmod>2025-08-10T06:22:30.984Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/book-blogs/</loc>
+        <lastmod>2025-08-10T06:22:30.998Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/contact/</loc>
+        <lastmod>2025-08-10T06:22:30.998Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/crafts-arts/</loc>
+        <lastmod>2025-08-10T06:22:30.998Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/game-blogs/</loc>
+        <lastmod>2025-08-10T06:22:30.998Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/</loc>
+        <lastmod>2025-08-10T06:22:30.998Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/latest-news/</loc>
+        <lastmod>2025-08-10T06:22:30.999Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/privacy-policy/</loc>
+        <lastmod>2025-08-10T06:22:30.999Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/subscribe/</loc>
+        <lastmod>2025-08-10T06:22:31.000Z</lastmod>
+      </url>
+      <url>
+        <loc>https://thecozytales.com/all-posts/</loc>
+        <lastmod>2025-08-10T15:08:55.605Z</lastmod>
       </url>
 </urlset>
