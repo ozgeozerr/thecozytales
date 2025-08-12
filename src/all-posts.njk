@@ -3,23 +3,25 @@ layout: base.njk
 title: All Posts
 class: "cozy-page"
 ---
+<section class="category-layout" style="display: flex; gap: 2rem; max-width: 1200px; margin: 0 auto;">
 
-<section class="section">
-  <ul class="post-list">
-    {% for postItem in collections.allPosts %}
-      {% set url = postItem.url %}
-      {% set title = postItem.data.title %}
-      {% set excerpt = postItem.data.excerpt %}
-      {% set date = postItem.data.date %}
-      {% set headerImage = postItem.data.headerImage %}
-      {% include "post-card.njk" %}
-    {% else %}
-      <li class="no-posts-message">
-        <div class="pixel-border">
-          <h3>Level Up Coming Soon!</h3>
-          <p>We're working on some cozy game reviews! Check back soon!</p>
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
+  <section class="section" style="flex: 1;">
+    <ul class="post-list">
+      {% for postItem in collections.allPosts %}
+        {% set url = postItem.url %}
+        {% set title = postItem.data.title %}
+        {% set excerpt = postItem.data.excerpt %}
+        {% set date = postItem.data.date %}
+        {% set headerImage = postItem.data.headerImage %}
+        {% include "post-card.njk" %}
+      {% else %}
+        <li class="no-posts-message">
+          <div class="pixel-border">
+            <h3>Level Up Coming Soon!</h3>
+            <p>We're working on some cozy game reviews! Check back soon!</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
 </section>

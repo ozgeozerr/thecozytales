@@ -22,3 +22,51 @@ class: "cozy-page"
 
   <p><em>This policy may be updated occasionally. Please check back periodically for changes.</em></p>
 </section>
+
+
+  <aside class="blog-sidebar">
+      <!-- Recommended Posts -->
+      <div class="sidebar-section">
+        <h3>✨ You Might Like ✨</h3>
+        {% for post in collections.latestAddedPosts | slice(0, 3) %}
+          {% if post.url != page.url %}
+            <div class="recommended-post">
+              <a href="{{ post.url }}">
+                {% if post.data.headerImage %}
+                  <img src="{{ post.data.headerImage }}" alt="{{ post.data.title }}" />
+                {% endif %}
+                <h4>{{ post.data.title }}</h4>
+                <p>{{ post.data.excerpt | slice(0, 80) }}{% if post.data.excerpt.length > 80 %}...{% endif %}</p>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Buy Me a Coffee Section -->
+      <div class="sidebar-section buy-coffee">
+        <a href="https://buymeacoffee.com/thecozytales" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/buymeacoffee.png" alt="Buy Me a Coffee" style="max-width: 100%; border-radius: 12px;" />
+        </a>
+      </div>
+
+
+      <!-- Ad Space #1 - Banner -->
+      <div class="sidebar-section">
+        <div class="ad-space ad-large">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4326904642819885"
+            crossorigin="anonymous"></script>
+        <!-- Dikey Sidebar -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-4326904642819885"
+            data-ad-slot="9439506120"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        </div>
+      </div>
+  </aside>
+   

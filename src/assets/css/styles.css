@@ -2673,3 +2673,148 @@ a:focus, button:focus, input:focus {
 .cozy-page-wrapper p {
   margin-bottom: 1rem;
 }
+
+@media (max-width: 600px) {
+  /* Cozy Carousel Wrapper adjustments */
+  .cozy-carousel-wrapper {
+    padding: 1rem 0.75rem 0.75rem 0.75rem;
+    border-width: 4px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(139, 90, 58, 0.2);
+  }
+
+  .carousel-decoration {
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    height: 3px;
+    border-radius: 3px;
+  }
+
+  .carousel-track {
+    gap: 0.75rem;
+  }
+
+  .carousel-slide {
+    flex: 0 0 260px; /* smaller slide width */
+    border-radius: 12px;
+  }
+
+  .cozy-post-card {
+    border-width: 2px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(139, 90, 58, 0.15), inset 1px 1px 0 rgba(246, 193, 193, 0.08);
+  }
+
+  .cozy-post-card::before {
+    height: 2px;
+  }
+
+  .card-image {
+    height: 160px;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-excerpt {
+    font-size: 0.9rem;
+  }
+
+  .card-date {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* Welcome card */
+  .welcome-card {
+    flex: 0 0 220px;
+    padding: 1.5rem 1rem;
+  }
+
+  .welcome-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .welcome-card p {
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+
+  .welcome-card h2 span {
+    font-size: 0.85rem;
+  }
+
+  .carousel-content-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Featured Section adjustments */
+  .featured-section {
+    padding: 1rem 0.75rem;
+    margin: 2rem auto;
+    max-width: 100%;
+    border-radius: 12px;
+    border-width: 2px;
+    box-shadow:
+      inset 1.5px 1.5px 5px rgba(255 255 255 / 0.25),
+      inset -1.5px -1.5px 5px rgba(0 0 0 / 0.1),
+      0 4px 15px rgba(139, 90, 58, 0.15);
+  }
+
+  .featured-section > h2 {
+    font-size: 1.8rem;
+  }
+
+  .featured-section .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .featured-section .post-card {
+    margin-top: 1rem;
+  }
+
+  /* Buttons */
+  .btn-link {
+    font-size: 1rem;
+    padding: 0.4rem 1.25rem;
+    border-radius: 10px;
+  }
+
+  .featured-section > a.btn-link {
+    margin-top: 0.75rem;
+  }
+}@media (max-width: 600px) {
+  .btn-link.buy-me-coffee {
+    font-size: 0.9rem;
+    padding: 0.35rem 1rem;
+    border-radius: 8px;
+    max-width: 50px; /* limit max width */
+    width: 100%; /* make it full width inside container */
+    box-shadow:
+      inset 1px 1px 0 rgba(255 255 255 / 0.7),
+      0 3px 7px rgba(246, 193, 193, 0.25);
+  }
+
+  a[href*="buymeacoffee.com"] img {
+    max-width: 50px; /* smaller max width on mobile */
+    width: 60%;      /* scale down responsively */
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;   /* center horizontally */
+    height: auto;     /* keep aspect ratio */
+  }
+}
+
+@media (max-width: 600px) {
+  .category-posts .post-card {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;  /* or any suitable width like 320px */
+    /* optionally, add display block if needed */
+    display: block;
+  }
+}
